@@ -2,31 +2,49 @@ import React from "react";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 import Routes from "../constants/Routes";
-
+ 
 const MainMenu = () => {
+
+  const menuItems = [
+  {
+    to: Routes.HOME,
+    text: "INICIO",
+  },
+  {
+    to: Routes.EVENTS,
+    text: "EVENTOS",
+  },
+  {
+    to: Routes.COURSERS,
+    text: "CURSOS",
+  },
+  {
+    to: Routes.INTERSHIPS,
+    text: "PASANTIAS & OFERTAS",
+  },
+  {
+    to: Routes.CALENDAR,
+    text: "CALENDARIO",
+  },
+  {
+    to: Routes.LOGIN,
+    text: "INICIO SESION",
+  },
+  {
+    to: Routes.REGISTER,
+    text: "REGISTRO",
+  },
+];
+
   return (
     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["0"]}>
-      <Menu.Item key="1">
-        <Link to={Routes.HOME}>Inicio</Link>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <Link to={Routes.EVENTS}>Eventos</Link>
-      </Menu.Item>
-      <Menu.Item key="3">
-        <Link to={Routes.COURSERS}>Cursos</Link>
-      </Menu.Item>
-      <Menu.Item key="4">
-        <Link to={Routes.INTERSHIPS}>Pasantias & Ofertas</Link>
-      </Menu.Item>
-      <Menu.Item key="5">
-        <Link to={Routes.CALENDAR}>Calendario</Link>
-      </Menu.Item>
-      <Menu.Item key="6">
-        <Link to={Routes.HOME}>Iniciar Sesion</Link>
-      </Menu.Item>
-      <Menu.Item key="7">
-        <Link to={Routes.REGISTER}>Registrarse</Link>
-      </Menu.Item>
+     {menuItems.map((item, index) => {
+        return (
+          <Menu.Item key={index}>
+            <Link to={item.to}>{item.text}</Link>
+          </Menu.Item>
+        );
+      })}
     </Menu>
   );
 };

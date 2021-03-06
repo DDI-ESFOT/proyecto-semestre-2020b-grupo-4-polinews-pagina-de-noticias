@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Input, DatePicker, Modal, Select, Checkbox, Button } from "antd";
+import { useAuth } from "../lib/Auth";
 
 const FormRegister = () => {
   const [form] = Form.useForm();
@@ -36,8 +37,9 @@ const FormRegister = () => {
     },
   };
 
-  const onFinish = (values) => {
-    console.log("Formulario de Registro ", values);
+  const { register } = useAuth();
+  const onFinish = (data) => {
+    register(data);
   };
 
   const prefixSelector = (
@@ -85,52 +87,47 @@ const FormRegister = () => {
           name="register"
           onFinish={onFinish}
           initialValues={{
-            residence: ["zhejiang", "hangzhou", "xihu"],
             prefix: "86",
           }}
           scrollToFirstError
           validateMessages={validateMessages}
         >
-          <Form.Item
-            name={["user", "name"]}
-            label="Nombres"
-            rules={[{ required: true }]}
-          >
+          <Form.Item name="name" label="Nombres" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
           <Form.Item
-            name={["user", "lastname"]}
+            name="lastname"
             label="Apellidos"
             rules={[{ required: true }]}
           >
             <Input />
           </Form.Item>
           <Form.Item
-            name={["user", "date"]}
+            name="date"
             label="Fecha de nacimiento"
             rules={[{ required: true }]}
           >
             <DatePicker />
           </Form.Item>
           <Form.Item
-            name={["user", "email"]}
+            name="email"
             label="Correo Electronico"
             rules={[{ type: "email" }, { required: true }]}
           >
             <Input />
           </Form.Item>
           <Form.Item
-            name={["user", "password"]}
-            label="Contraseña:"
+            name="password"
+            label="Contraseña"
             rules={[{ required: true }]}
             hasFeedback
           >
             <Input.Password />
           </Form.Item>
           <Form.Item
-            name={["user", "confirm"]}
+            name="confirm"
             label="Confirmar Contraseña"
-            dependencies={["user", "password"]}
+            dependencies={["password"]}
             hasFeedback
             rules={[
               { required: true },
@@ -139,7 +136,11 @@ const FormRegister = () => {
                   if (!value || getFieldValue("password") === value) {
                     return Promise.resolve();
                   }
-                  return Promise.reject("Las contraseñas no coindicen!");
+                  return Promise.reject(
+                    new Error(
+                      "The two passwords that you entered do not match!"
+                    )
+                  );
                 },
               }),
             ]}
@@ -148,7 +149,7 @@ const FormRegister = () => {
           </Form.Item>
 
           <Form.Item
-            name={["user", "phone"]}
+            name="phone"
             label="Numero de Telefono"
             rules={[{ required: true }]}
           >
@@ -160,7 +161,7 @@ const FormRegister = () => {
             />
           </Form.Item>
           <Form.Item
-            name={["user", "status"]}
+            name="status"
             label="Tipo de usuario"
             rules={[{ required: true }]}
           >
@@ -178,7 +179,7 @@ const FormRegister = () => {
             </Select>
           </Form.Item>
           <Form.Item
-            name={["user", "agreement"]}
+            name="agreement"
             valuePropName="checked"
             rules={[
               {

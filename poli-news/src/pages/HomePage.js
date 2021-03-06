@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Col, Image } from "antd";
 import FormEvent from "../components/FormEvent";
-import FormRegister from "../components/FormRegister";
 
 const HomePage = () => {
   return (
@@ -13,7 +12,7 @@ const HomePage = () => {
         </Col>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
           <Image
-            width={200}
+            width={400}
             src="https://www.conmishijos.com/assets/posts/7000/7942-nina-bailando.jpg"
           />
         </Col>
