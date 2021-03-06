@@ -58,12 +58,12 @@ const FormEvent = () => {
         >
           <Form
             {...layout}
-            name="create-event"
+            name="create_event"
             onFinish={onFinish}
             validateMessages={validateMessages}
           >
             <Form.Item
-              name={["event", "name"]}
+              name='name_event'
               label="Nombre del evento:"
               rules={[{ required: true }]}
             >

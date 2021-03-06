@@ -1,52 +1,74 @@
-import React from "react";
-import { Menu } from "antd";
-import { Link } from "react-router-dom";
-import Routes from "../constants/Routes";
- 
+import React from 'react';
+import { Button, Menu } from 'antd';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../lib/Auth';
+import Routes from '../constants/Routes';
+
 const MainMenu = () => {
+	const { user } = useAuth();
+	const menuItems = [
+		{
+			to: Routes.HOME,
+			text: 'INICIO',
+		},
+		{
+			to: Routes.EVENTS,
+			text: 'EVENTOS',
+		},
+		{
+			to: Routes.COURSERS,
+			text: 'CURSOS',
+		},
+		{
+			to: Routes.INTERSHIPS,
+			text: 'PASANTIAS & OFERTAS',
+		},
+		{
+			to: Routes.CALENDAR,
+			text: 'CALENDARIO',
+		},
+		{
+			to: Routes.HOME_NO_LOGIN,
+			text: 'Salir',
+		},
+	];
 
-  const menuItems = [
-  {
-    to: Routes.HOME,
-    text: "INICIO",
-  },
-  {
-    to: Routes.EVENTS,
-    text: "EVENTOS",
-  },
-  {
-    to: Routes.COURSERS,
-    text: "CURSOS",
-  },
-  {
-    to: Routes.INTERSHIPS,
-    text: "PASANTIAS & OFERTAS",
-  },
-  {
-    to: Routes.CALENDAR,
-    text: "CALENDARIO",
-  },
-  {
-    to: Routes.LOGIN,
-    text: "INICIO SESION",
-  },
-  {
-    to: Routes.REGISTER,
-    text: "REGISTRO",
-  },
-];
+	const menuLogout = [
+		{
+			to: Routes.HOME_NO_LOGIN,
+			text: 'INICIO',
+		},
+		{
+			to: Routes.LOGIN,
+			text: 'INICIO SESION',
+		},
+		{
+			to: Routes.REGISTER,
+			text: 'REGISTRO',
+		},
+	];
 
-  return (
-    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["0"]}>
-     {menuItems.map((item, index) => {
-        return (
-          <Menu.Item key={index}>
-            <Link to={item.to}>{item.text}</Link>
-          </Menu.Item>
-        );
-      })}
-    </Menu>
-  );
+	return (
+		<Menu theme="dark" mode="horizontal" defaultSelectedKeys={['0']}>
+			{user
+				? menuItems.map((item, index) => {
+						return (
+							<>
+								<Menu.Item key={index}>
+									<Link to={item.to}>{item.text}</Link>
+								</Menu.Item>
+							</>
+						);
+				  })
+				: menuLogout.map((item, index) => {
+						return (
+							<Menu.Item key={index}>
+								<Link to={item.to}>{item.text}</Link>
+							</Menu.Item>
+						);
+				  })}
+		</Menu>
+	);
 };
 
 export default MainMenu;
