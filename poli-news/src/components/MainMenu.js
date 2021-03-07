@@ -5,7 +5,7 @@ import { useAuth } from '../lib/Auth';
 import Routes from '../constants/Routes';
 
 const MainMenu = () => {
-	const { user } = useAuth();
+	const { user, logout } = useAuth();
 	const menuItems = [
 		{
 			to: Routes.HOME,
@@ -29,7 +29,11 @@ const MainMenu = () => {
 		},
 		{
 			to: Routes.HOME_NO_LOGIN,
-			text: 'Salir',
+			text: (
+				<Button type="link" onClick={logout} style={{ color: '#ffffff' }}>
+					SALIR
+				</Button>
+			),
 		},
 	];
 
@@ -49,7 +53,7 @@ const MainMenu = () => {
 	];
 
 	return (
-		<Menu theme="dark" mode="horizontal" defaultSelectedKeys={['0']}>
+		<Menu theme="dark" mode="horizontal">
 			{user
 				? menuItems.map((item, index) => {
 						return (

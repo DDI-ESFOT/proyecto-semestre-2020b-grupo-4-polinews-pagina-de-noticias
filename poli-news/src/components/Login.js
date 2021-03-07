@@ -12,8 +12,6 @@ const Login = () => {
 	useEffect(() => {
 		if (!!user) {
 			history.replace(Routes.HOME);
-		} else {
-			history.replace(Routes.HOME_NO_LOGIN);
 		}
 	}, [user]);
 
