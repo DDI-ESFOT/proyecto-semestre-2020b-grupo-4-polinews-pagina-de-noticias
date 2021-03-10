@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import withAuth from '../hocs/withAuth';
 
 const CoursersPage = () => {
-  return <>CURSOoooooooooooooooooooooooooooooooooooooooooooooooooooooS</>;
+	return <>CURSOS</>;
 };
-export default CoursersPage;
+export default withAuth(CoursersPage);

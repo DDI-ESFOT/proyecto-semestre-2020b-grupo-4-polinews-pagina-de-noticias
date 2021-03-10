@@ -3,6 +3,7 @@ import { Modal, Form, Input, Button, Checkbox } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../lib/Auth';
 import Routes from '../constants/Routes';
+import withoutAuth from '../hocs/withoutAuth';
 
 const Login = () => {
 	const [isModalVisible, setIsModalVisible] = useState(true);
@@ -95,4 +96,4 @@ const Login = () => {
 		</>
 	);
 };
-export default Login;
+export default withoutAuth(Login);

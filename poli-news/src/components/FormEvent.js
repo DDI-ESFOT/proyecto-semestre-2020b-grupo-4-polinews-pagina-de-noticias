@@ -40,7 +40,7 @@ const FormEvent = () => {
 		<div>
 			<>
 				<Button type="primary" onClick={showModal}>
-					Crear Evento
+					Crear Eventoo
 				</Button>
 				<Modal title="Crear Evento" visible={isModalVisible} footer={null} onCancel={handleCancel}>
 					<Form {...layout} name="create_event" onFinish={onFinish} validateMessages={validateMessages}>

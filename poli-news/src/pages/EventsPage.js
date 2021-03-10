@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import withAuth from '../hocs/withAuth';
 
 const EventsPage = () => {
-  return <>EVENTOS</>;
+	return <>EVENTOS</>;
 };
-export default EventsPage;
+export default withAuth(EventsPage);

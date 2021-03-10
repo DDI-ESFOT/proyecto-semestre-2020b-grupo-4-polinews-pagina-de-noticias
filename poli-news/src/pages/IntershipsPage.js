@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import withAuth from '../hocs/withAuth';
 
 const IntershipsPage = () => {
-  return <>PASANTIAS</>;
+	return <>PASANTIAS</>;
 };
-export default IntershipsPage;
+export default withAuth(IntershipsPage);

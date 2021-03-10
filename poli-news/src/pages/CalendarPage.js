@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import withAuth from '../hocs/withAuth';
 
 const CalendarPage = () => {
-  return <>CALENDARIOOO</>;
+	return <>CALENDARIOOO</>;
 };
-export default CalendarPage;
+export default withAuth(CalendarPage);
