@@ -2,6 +2,7 @@ import React from 'react';
 import withAuth from '../hocs/withAuth';
 import { Row, Col, Image, Carousel, Typography } from 'antd';
 import FormEvent from '../components/FormEvent';
+import FormIntershipsOfer from "../components/FormIntershipsOfer";
 
 const HomePage = () => {
 	const { Title } = Typography;
@@ -46,6 +47,7 @@ const HomePage = () => {
 				<Col>
 					<h1>Crea tu propio evento e invita a nuestra comunidad</h1>
 					<FormEvent></FormEvent>
+
 				</Col>
 				<Col>
 					<Image width={400} src="https://www.conmishijos.com/assets/posts/7000/7942-nina-bailando.jpg" />
