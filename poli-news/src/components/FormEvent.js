@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-import { Modal, Form, Input, TimePicker, Button, DatePicker, Select } from 'antd';
+import { useAuth } from '../lib/Auth';
+import { Modal, Form, Input, TimePicker, Button, DatePicker, Select, Upload } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 
 const FormEvent = () => {
 	const { RangePicker } = DatePicker;
 	const { Option } = Select;
+	const { registerFormEvents } = useAuth();
 
 	const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -14,6 +17,14 @@ const FormEvent = () => {
 
 	const handleCancel = () => {
 		setIsModalVisible(false);
+	};
+
+	const normFile = (e) => {
+		console.log('Upload event:', e);
+		if (Array.isArray(e)) {
+			return e;
+		}
+		return e && e.fileList;
 	};
 
 	const layout = {
@@ -32,8 +43,9 @@ const FormEvent = () => {
 		},
 	};
 
-	const onFinish = (values) => {
-		console.log('Formulario de Evento', values);
+	const onFinish = (data) => {
+		registerFormEvents(data);
+		console.log('Formulario de Evento', data);
 	};
 
 	return (
@@ -83,6 +95,17 @@ const FormEvent = () => {
 						</Form.Item>
 						<Form.Item name="description" label="Descripcion">
 							<Input.TextArea />
+						</Form.Item>
+						<Form.Item
+							name="photo"
+							label="Foto"
+							valuePropName="fileList"
+							getValueFromEvent={normFile}
+							extra="Selecciona un archivo .jpg"
+						>
+							<Upload name="logo" action={null} listType="picture">
+								<Button icon={<UploadOutlined />}>Click to upload</Button>
+							</Upload>
 						</Form.Item>
 						<Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
 							<Button type="primary" htmlType="submit">

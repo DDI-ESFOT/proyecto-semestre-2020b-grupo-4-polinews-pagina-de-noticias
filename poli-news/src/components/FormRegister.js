@@ -6,6 +6,7 @@ import withoutAuth from '../hocs/withoutAuth';
 const FormRegister = () => {
 	const [form] = Form.useForm();
 	const { Option } = Select;
+	const { register } = useAuth();
 
 	const formItemLayout = {
 		labelCol: {
@@ -38,7 +39,6 @@ const FormRegister = () => {
 		},
 	};
 
-	const { register } = useAuth();
 	const onFinish = (data) => {
 		register(data);
 	};
@@ -96,6 +96,20 @@ const FormRegister = () => {
 					</Form.Item>
 					<Form.Item name="date" label="Fecha de nacimiento" rules={[{ required: true }]}>
 						<DatePicker />
+					</Form.Item>
+					<Form.Item name="gender" label="Genero" rules={[{ required: true }]}>
+						<Select
+							showSearch
+							style={{ width: 150 }}
+							placeholder="Select type"
+							optionFilterProp="children"
+							filterOption={(input, option) =>
+								option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+							}
+						>
+							<Option value="male">Masculino</Option>
+							<Option value="female">Femenino</Option>
+						</Select>
 					</Form.Item>
 					<Form.Item name="email" label="Correo Electronico" rules={[{ type: 'email' }, { required: true }]}>
 						<Input />

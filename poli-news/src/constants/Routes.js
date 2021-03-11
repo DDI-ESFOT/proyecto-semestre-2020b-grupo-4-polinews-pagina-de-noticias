@@ -7,6 +7,7 @@ const Routes = {
 	CALENDAR: '/calendar',
 	LOGIN: '/login',
 	REGISTER: '/register',
+	PROFILE: '/profile',
 };
 
 export default Routes;

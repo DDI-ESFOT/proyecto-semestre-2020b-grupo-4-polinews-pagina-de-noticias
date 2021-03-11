@@ -6,6 +6,7 @@ import Routes from '../constants/Routes';
 
 const MainMenu = () => {
 	const { user, logout } = useAuth();
+
 	const menuItems = [
 		{
 			to: Routes.HOME,
@@ -28,9 +29,13 @@ const MainMenu = () => {
 			text: 'CALENDARIO',
 		},
 		{
+			to: Routes.PROFILE,
+			text: 'MI PERFIL',
+		},
+		{
 			to: Routes.HOME_NO_LOGIN,
 			text: (
-				<Button type="link" onClick={logout} style={{ color: '#ffffff' }}>
+				<Button type="link" onClick={logout} style={{ color: '#a6adb4' }}>
 					SALIR
 				</Button>
 			),
