@@ -4,6 +4,7 @@ import { Row, Col, Image, Typography } from 'antd';
 import FormEvent from '../components/FormEvent';
 import CarouselNews from '../components/CarouselNews';
 import Footer from '../components/Footer';
+import FormIntershipsOfer from '../components/FormIntershipsOfer';
 
 const HomePage = () => {
 	const { Title } = Typography;
