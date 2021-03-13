@@ -5,6 +5,11 @@ import Routes from '../constants/Routes';
 import buho_1 from '../images/buho_1.png';
 import { useAuth } from '../lib/Auth';
 import { PhoneOutlined, MailOutlined, EnvironmentOutlined, FolderOpenOutlined } from '@ant-design/icons';
+<<<<<<< Updated upstream
+=======
+import TermsConditions from './TermsConditions';
+import {useAuth} from "../lib/Auth";
+>>>>>>> Stashed changes
 
 const Footer = () => {
 	const { user } = useAuth();

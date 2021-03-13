@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { Row, Col, Image, Carousel, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import Routes from '../constants/Routes';
+<<<<<<< Updated upstream
 import withoutAuth from '../hocs/withoutAuth';
 import Footer from '../components/Footer';
+=======
+import withoutAuth from "../hocs/withAuth";
+
+>>>>>>> Stashed changes
 
 const HomeNoLogin = () => {
 	const oferItems = [
