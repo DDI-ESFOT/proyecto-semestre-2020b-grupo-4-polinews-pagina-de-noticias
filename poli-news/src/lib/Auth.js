@@ -48,7 +48,7 @@ function useAuthProvider() {
 			await db
 				.collection('users')
 				.doc(uid)
-				.set(...data)
+				.set(data)
 				.then(() => {
 					console.log('Document successfully written!');
 				});

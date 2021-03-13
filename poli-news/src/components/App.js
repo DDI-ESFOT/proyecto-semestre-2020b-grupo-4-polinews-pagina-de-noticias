@@ -12,6 +12,7 @@ import HomeNoLogin from '../pages/HomeNoLogin';
 import ProfilePage from '../pages/ProfilePage';
 import Login from './Login';
 import FormRegister from './FormRegister';
+import TermsConditions from "./TermsConditions";
 import { AuthProvider } from '../lib/Auth';
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
 					<Route path="/coursers" component={CoursersPage} />
 					<Route path="/interships" component={IntershipsPage} />
 					<Route path="/calendar" component={CalendarPage} />
-					<Route path="/login" component={ProfilePage} />
+					<Route path="/profile" component={ProfilePage} />
+					<Route path="/terms_conditions" component={TermsConditions} />
 					<Route path="/login" component={Login} />
 					<Route path="/register" component={FormRegister} />
 					<Route component={NotFoundPage} />

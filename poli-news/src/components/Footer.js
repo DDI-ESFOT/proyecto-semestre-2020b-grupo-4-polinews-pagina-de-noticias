@@ -1,14 +1,21 @@
-import React from 'react';
-import { Col, Layout, Row, Typography, Image } from 'antd';
+import React, {useState} from 'react';
+import {Col, Layout, Row, Typography, Image, Button} from 'antd';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../lib/Auth';
 import Routes from '../constants/Routes';
 import { PhoneOutlined, MailOutlined, EnvironmentOutlined, FolderOpenOutlined } from '@ant-design/icons';
+import TermsConditions from "./TermsConditions";
 
 const Footer = () => {
+
 	const { user } = useAuth();
 	const { Title } = Typography;
 	const { Footer } = Layout;
+	const [isModalVisible, setIsModalVisible] = useState(true  );
+
+	const showModal = () => {
+		setIsModalVisible(true);
+	};
 
 	const menuItems = [
 		{
@@ -50,8 +57,8 @@ const Footer = () => {
 			icon: <EnvironmentOutlined />,
 		},
 		{
-			to: 'https://www.google.com',
-			text: 'Terminos y Condiciones',
+			href: "",
+			text: <Link to={Routes.TERMS}> Terminos & Condiciones </Link> ,
 			icon: <FolderOpenOutlined />,
 		},
 	];
