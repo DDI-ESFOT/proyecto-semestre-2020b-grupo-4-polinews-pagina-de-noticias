@@ -59,7 +59,7 @@ function useAuthProvider() {
 		} catch (error) {
 			console.log('error', error);
 			// const errorCode = error.code;
-			// message.error(translateMessage(errorCode));
+			message.error(translateMessage(error));
 			handleUser(false);
 			throw error;
 		}
@@ -71,21 +71,19 @@ function useAuthProvider() {
 		try {
 			const { date, time, photo } = data;
 			console.log('photo:', photo);
+
 			const newTime = time.toDate();
 			data['time'] = Timestamp.fromDate(newTime);
 			data['date'] = [Timestamp.fromDate(date[0].toDate()), Timestamp.fromDate(date[1].toDate())];
+
 			const ref = db.collection('events').doc();
 			const id = ref.id;
-
 			const newData = { ...data, photo: '' };
-
 			await ref.set(
 				{
 					...newData,
-
 					id,
 				},
-
 				{ merge: true }
 			);
 
@@ -94,11 +92,8 @@ function useAuthProvider() {
 			//create storage ref
 
 			let storageRef = storage.ref();
-
 			const imgFile = storageRef.child(`events/${id}`);
-
 			let task = imgFile.put(photo[0].originFileObj);
-
 			task.on(
 				'state_changed',
 
@@ -118,10 +113,13 @@ function useAuthProvider() {
 					});
 				}
 			);
-		} catch (e) {
-			console.log('ERROR', e);
+			message.success('Evento creado');
+		} catch (error) {
+			console.log('ERROR', error);
+			message.error(translateMessage(error));
 		}
 	}
+
 	async function login(email, password) {
 		auth.signInWithEmailAndPassword(email, password)
 			.then((user) => {

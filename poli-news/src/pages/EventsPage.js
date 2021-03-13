@@ -6,7 +6,9 @@ const EventsPage = () => {
 	return (
 		<>
 			EVENTOSS
-			<CardsEvents />
+			<div className="square-two">
+				<CardsEvents />
+			</div>
 			<Footer />
 		</>
 	);

@@ -13,28 +13,32 @@ import male_teacher from '../images/male_teacher.png';
 
 const MainMenu = () => {
 	const { user, logout } = useAuth();
-	const [avatar, SetAvatar] = useState(null);
+	const [avatar, SetAvatar] = useState('');
 
 	useEffect(() => {
 		fetchAvatar();
-	}, []);
+	}, [user]);
 
 	const fetchAvatar = async () => {
 		try {
-			const uid = user.uid;
+			console.log('USUARIO', user);
+			const uid = await user.uid;
 			const doc = await db.collection('users').doc(uid).get();
 			console.log('REF', doc.data());
 			const data = doc.data();
-
-			/*if ((data.gender == 'male') & (data.status == 'student')) {
-				SetAvatar(male_student);
-			} else if ((data.gender == 'male') & (data.status == 'teacher')) {
-				SetAvatar(male_teacher);
-			} else if ((data.gender == 'female') & (data.status == 'student')) {
-				SetAvatar(female_student);
-			} else if ((data.gender == 'female') & (data.status == 'teacher')) {
-				SetAvatar(female_teacher);
-			}*/
+			if (data.gender == 'male') {
+				if (data.status == 'student') {
+					SetAvatar(male_student);
+				} else {
+					SetAvatar(male_teacher);
+				}
+			} else {
+				if (data.status == 'student') {
+					SetAvatar(female_student);
+				} else {
+					SetAvatar(female_teacher);
+				}
+			}
 		} catch (e) {
 			console.log('ERROR', e);
 		}
@@ -72,7 +76,7 @@ const MainMenu = () => {
 					</Menu.Item>
 					<Menu.Item style={{ float: 'right' }}>
 						<Link to={Routes.PROFILE}>
-							<Avatar src={male_student} size={67} />
+							<Avatar src={avatar} size={67} />
 							MI PERFIL
 						</Link>
 					</Menu.Item>

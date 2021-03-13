@@ -4,6 +4,7 @@ body{
     background-color: #2b3448;
     color: #ffbf0f;
 }
+
 .my-footer{
     background-color: #151f33;
 }
@@ -16,4 +17,17 @@ body{
     border: 2.5px solid #00A6ff;
     margin: 2% 20% auto 20%;
 
+}
+
+.square-two{
+    align-items: center;
+    border: 2.5px dashed #ffbf0f;
+    margin: 2% 5% auto 5%;
+
+}
+
+.my-card{
+    width: 300; 
+    text-align: 'center';
+    background-color: '#151f33'; 
 }

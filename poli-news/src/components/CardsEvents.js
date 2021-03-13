@@ -28,28 +28,31 @@ const CardsEvents = () => {
 	return (
 		<>
 			<div className="site-card-wrapper">
-				<Row gutter={16} justify="center">
+				<Row justify="center">
 					{events.map((event, index) => {
+						console.log('Time', event.time);
 						return (
 							<Col span={8} key={index}>
 								<Card
 									title={event.name}
 									bordered={false}
 									hoverable
-									style={{ width: 240 }}
-									cover={
-										<img
-											alt="Not Fund image"
-											src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?b=1&k=6&m=1223671392&s=612x612&w=0&h=5VMcL3a_1Ni5rRHX0LkaA25lD_0vkhFsb1iVm1HKVSQ="
-										/>
-									}
+									className="my-card"
+									style={{
+										width: 300,
+										textAlign: 'center',
+										backgroundColor: '#151f33',
+										marginTop: '2%',
+										//color: '#ffffff',
+									}}
+									cover={<img alt="Not Found Image" src={event.photo} />}
 								>
 									<Meta
 										title={
 											'Empieza       ' +
 											event.time.toDate().getHours() +
 											':' +
-											event.date.toDate().getMinutes()
+											event.time.toDate().getMinutes()
 										}
 										description={event.description}
 										action={<Button> ASISTIRE </Button>}
