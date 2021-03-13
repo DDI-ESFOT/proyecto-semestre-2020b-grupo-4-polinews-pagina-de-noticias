@@ -1,66 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, Layout, Row, Typography, Image, Button } from 'antd';
 import { Link } from 'react-router-dom';
-import Routes from '../constants/Routes';
 import buho_1 from '../images/buho_1.png';
 import { useAuth } from '../lib/Auth';
-import { PhoneOutlined, MailOutlined, EnvironmentOutlined, FolderOpenOutlined } from '@ant-design/icons';
+import menuItems from '../constants/Items';
+import contactItems from '../constants/Contacts';
+import menuLogout from '../constants/ItemsLogout';
 
 const Footer = () => {
 	const { user } = useAuth();
 	const { Title } = Typography;
 	const { Footer } = Layout;
-	const [isModalVisible, setIsModalVisible] = useState(true);
-
-	const showModal = () => {
-		setIsModalVisible(true);
-	};
-
-	const menuItems = [
-		{
-			to: Routes.HOME,
-			text: 'INICIO',
-		},
-		{
-			to: Routes.EVENTS,
-			text: 'EVENTOS',
-		},
-		{
-			to: Routes.COURSERS,
-			text: 'CURSOS',
-		},
-		{
-			to: Routes.INTERSHIPS,
-			text: 'PASANTIAS & OFERTAS',
-		},
-		{
-			to: Routes.CALENDAR,
-			text: 'CALENDARIO',
-		},
-	];
-
-	const contactItems = [
-		{
-			href: 'https://web.whatsapp.com/',
-			text: '0994942280',
-			icon: <PhoneOutlined />,
-		},
-		{
-			href: 'http://correo.epn.edu.ec/',
-			text: 'polinews_oficial@epn.edu.ec',
-			icon: <MailOutlined />,
-		},
-		{
-			href: 'https://www.google.com.ec/maps',
-			text: 'Av Good vibes and Good Life Oe2 - 110',
-			icon: <EnvironmentOutlined />,
-		},
-		{
-			href: '',
-			text: <Link to={Routes.TERMS}> Terminos & Condiciones </Link>,
-			icon: <FolderOpenOutlined />,
-		},
-	];
 
 	return (
 		<Footer className="my-footer" style={{ textAlign: 'center' }}>
@@ -71,15 +21,25 @@ const Footer = () => {
 				</Col>
 				<Col span={8}>
 					<Title level={3}>SERVICIOS</Title>
-					{menuItems.map((item) => {
-						return (
-							<>
-								<Title level={5}>
-									<Link to={item.to}>{item.text}</Link>
-								</Title>
-							</>
-						);
-					})}
+					{user
+						? menuItems.map((item) => {
+								return (
+									<>
+										<Title level={5}>
+											<Link to={item.to}>{item.text}</Link>
+										</Title>
+									</>
+								);
+						  })
+						: menuLogout.map((item) => {
+								return (
+									<>
+										<Title level={5}>
+											<Link to={item.to}>{item.text}</Link>
+										</Title>
+									</>
+								);
+						  })}
 				</Col>
 				<Col span={8}>
 					<Title level={3}>CONTACTOS</Title>

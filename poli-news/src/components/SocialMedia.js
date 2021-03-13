@@ -8,7 +8,7 @@ const SocialMedia = () => {
 	});
 	const { Title } = Typography;
 	return (
-		<Row justify="center">
+		<Row justify="center" style={{ marginTop: '50px' }}>
 			<Col>
 				<Title level={2}>NO TE OLVIDES DE SEGUIRNOS !!!</Title>
 				<IconFont

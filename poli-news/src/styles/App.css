@@ -10,3 +10,10 @@ body{
 .my-footer Title{
     color: #ffbf0f;
 }
+
+.square{
+    align-items: center;
+    border: 2.5px solid #00A6ff;
+    margin: 2% 20% auto 20%;
+
+}

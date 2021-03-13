@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Form, Input, DatePicker, Modal, Select, Checkbox, Button } from 'antd';
 import { useAuth } from '../lib/Auth';
 import withoutAuth from '../hocs/withoutAuth';
+import Routes from '../constants/Routes';
+import { Link } from 'react-router-dom';
 
 const FormRegister = () => {
 	const [form] = Form.useForm();
@@ -175,7 +177,7 @@ const FormRegister = () => {
 						{...tailFormItemLayout}
 					>
 						<Checkbox>
-							He leido y acepto los <a href=""> terminos y condiciones </a>
+							He leido y acepto los <Link to={Routes.TERMS}> Terminos & Condiciones </Link>,
 						</Checkbox>
 					</Form.Item>
 					<Form.Item {...tailFormItemLayout}>
