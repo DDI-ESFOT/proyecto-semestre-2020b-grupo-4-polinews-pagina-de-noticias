@@ -8,6 +8,7 @@ const Routes = {
 	LOGIN: '/login',
 	REGISTER: '/register',
 	PROFILE: '/profile',
+	TERMS: '/terms_conditions',
 };
 
 export default Routes;
