@@ -1,7 +1,14 @@
 import React from 'react';
+import Footer from '../components/Footer';
+import withAuth from '../hocs/withAuth';
 
 const ProfilePage = () => {
-	return <div>MI PERFIL</div>;
+	return (
+		<>
+			MI PERRFIL
+			<Footer />
+		</>
+	);
 };
 
-export default ProfilePage;
+export default withAuth(ProfilePage);

@@ -3,6 +3,7 @@ import { Result, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import Routes from '../constants/Routes';
 import withoutAuth from '../hocs/withoutAuth';
+import Footer from '../components/Footer';
 
 const NotFoundPage = () => {
 	return (
@@ -17,6 +18,7 @@ const NotFoundPage = () => {
 					</Button>
 				}
 			/>
+			<Footer />
 		</>
 	);
 };

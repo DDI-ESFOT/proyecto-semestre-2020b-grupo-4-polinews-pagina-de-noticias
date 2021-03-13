@@ -26,7 +26,7 @@ function App() {
 					<Route path="/coursers" component={CoursersPage} />
 					<Route path="/interships" component={IntershipsPage} />
 					<Route path="/calendar" component={CalendarPage} />
-					<Route path="/login" component={ProfilePage} />
+					<Route path="/profile" component={ProfilePage} />
 					<Route path="/login" component={Login} />
 					<Route path="/register" component={FormRegister} />
 					<Route component={NotFoundPage} />

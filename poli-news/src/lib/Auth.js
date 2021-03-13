@@ -48,7 +48,7 @@ function useAuthProvider() {
 			await db
 				.collection('users')
 				.doc(uid)
-				.set(...data)
+				.set(data)
 				.then(() => {
 					console.log('Document successfully written!');
 				});
@@ -67,38 +67,61 @@ function useAuthProvider() {
 
 	async function registerFormEvents(data) {
 		console.log('DATOSSSS FORMULARIO EVENTO', data);
+
 		try {
-			const { date, time } = data;
-			const { uid } = data.photo;
-			const newDateStart = date[0].toDate();
-			const newDateFinish = date[1].toDate();
+			const { date, time, photo } = data;
+			console.log('photo:', photo);
 			const newTime = time.toDate();
-			data['time'] = Timestamp.fromMillis(newTime);
-			//data['date'] = Timestamp.fromDate(newDateStart);
+			data['time'] = Timestamp.fromDate(newTime);
+			data['date'] = [Timestamp.fromDate(date[0].toDate()), Timestamp.fromDate(date[1].toDate())];
+			const ref = db.collection('events').doc();
+			const id = ref.id;
 
-			let photoURL =
-				'https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?b=1&k=6&m=1223671392&s=612x612&w=0&h=5VMcL3a_1Ni5rRHX0LkaA25lD_0vkhFsb1iVm1HKVSQ=';
-			if (data.photo) {
-				const snapshot = await storage.ref(`events/${uid}`).put(data.photo);
-				photoURL = await snapshot.ref.getDownloadURL();
-			}
+			const newData = { ...data, photo: '' };
 
-			await db
-				.collection('events')
-				.add({
-					...data,
-					dateStart: newDateStart,
-					dateEnd: newDateFinish,
-					photoURL,
-				})
-				.then(() => {
-					console.log('Document successfully written!');
-				});
+			await ref.set(
+				{
+					...newData,
+
+					id,
+				},
+
+				{ merge: true }
+			);
+
+			console.log('Document successfully written!');
+
+			//create storage ref
+
+			let storageRef = storage.ref();
+
+			const imgFile = storageRef.child(`events/${id}`);
+
+			let task = imgFile.put(photo[0].originFileObj);
+
+			task.on(
+				'state_changed',
+
+				function progress(snap) {},
+
+				function error(err) {},
+
+				async function complete(err) {
+					// Upload completed successfully, now we can get the download URL
+
+					task.snapshot.ref.getDownloadURL().then(async (downloadURL) => {
+						console.log('public url:', downloadURL);
+
+						ref.set({ photo: downloadURL }, { merge: true });
+
+						console.log('public url saved on docs');
+					});
+				}
+			);
 		} catch (e) {
 			console.log('ERROR', e);
 		}
 	}
-
 	async function login(email, password) {
 		auth.signInWithEmailAndPassword(email, password)
 			.then((user) => {

@@ -1,1 +1,12 @@
 @import '~antd/dist/antd.css';
+
+body{
+    background-color: #2b3448;
+    color: #ffbf0f;
+}
+.my-footer{
+    background-color: #151f33;
+}
+.my-footer Title{
+    color: #ffbf0f;
+}

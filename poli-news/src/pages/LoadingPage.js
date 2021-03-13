@@ -1,7 +1,13 @@
 import React from 'react';
+import Footer from '../components/Footer';
 
 const LoadingPage = () => {
-	return <div>Cargando...</div>;
+	return (
+		<>
+			Cargando...
+			<Footer />
+		</>
+	);
 };
 
 export default LoadingPage;

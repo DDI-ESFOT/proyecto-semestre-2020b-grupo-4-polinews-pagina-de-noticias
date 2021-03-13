@@ -27,19 +27,28 @@ const CarouselNews = () => {
 	};
 
 	return (
-		<Carousel autoplay justify="center">
+		<Carousel autoplay>
 			{news.map((item) => {
-				console.log('ITEM', item);
 				return (
-					<Row justify="center" align="middle">
-						<Col span={12}>
-							<Title>{item.title}</Title>
-							<Title level={3}>{item.text}</Title>
-						</Col>
-						<Col span={12}>
-							<Image width={350} src={item.src} />
-						</Col>
-					</Row>
+					<>
+						<Row
+							justify="center"
+							style={{
+								marginTop: '2%',
+								textAlign: 'center',
+								alignContent: 'center',
+								marginLeft: '6%',
+							}}
+						>
+							<Col span={12}>
+								<Title>{item.title}</Title>
+								<Title level={3}>{item.text}</Title>
+							</Col>
+							<Col span={12}>
+								<Image width={400} src={item.src} />
+							</Col>
+						</Row>
+					</>
 				);
 			})}
 		</Carousel>

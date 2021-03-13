@@ -4,7 +4,7 @@ import { Row, Col, Image, Typography } from 'antd';
 import FormEvent from '../components/FormEvent';
 import CarouselNews from '../components/CarouselNews';
 import Footer from '../components/Footer';
-import FormIntershipsOfer from '../components/FormIntershipsOfer';
+import SocialMedia from '../components/SocialMedia';
 
 const HomePage = () => {
 	const { Title } = Typography;
@@ -13,16 +13,16 @@ const HomePage = () => {
 		<>
 			<CarouselNews />
 
+			<SocialMedia />
 			<Row justify="center">
 				<Col>
-					<Title level={2}>Crea tu propio evento e invita a nuestra comunidad</Title>
+					<Title>Crea tu propio evento e invita a nuestra comunidad</Title>
 					<FormEvent></FormEvent>
 				</Col>
 				<Col>
 					<Image width={400} src="https://www.conmishijos.com/assets/posts/7000/7942-nina-bailando.jpg" />
 				</Col>
 			</Row>
-
 			<Footer />
 		</>
 	);
