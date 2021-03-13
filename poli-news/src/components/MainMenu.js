@@ -3,7 +3,6 @@ import { Button, Menu, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../lib/Auth';
 import { db } from '../firebase';
-import firebase from 'firebase/app';
 import Routes from '../constants/Routes';
 import menuItems from '../constants/Items';
 import menuLogout from '../constants/ItemsLogout';
@@ -27,15 +26,15 @@ const MainMenu = () => {
 			console.log('REF', doc.data());
 			const data = doc.data();
 
-			if (data.gender == 'male' && data.status == 'student') {
+			/*if ((data.gender == 'male') & (data.status == 'student')) {
 				SetAvatar(male_student);
-			} else if (data.gender == 'male' && data.status == 'teacher') {
+			} else if ((data.gender == 'male') & (data.status == 'teacher')) {
 				SetAvatar(male_teacher);
-			} else if (data.gender == 'female' && data.status == 'student') {
+			} else if ((data.gender == 'female') & (data.status == 'student')) {
 				SetAvatar(female_student);
-			} else if (data.gender == 'female' && data.status == 'teacher') {
+			} else if ((data.gender == 'female') & (data.status == 'teacher')) {
 				SetAvatar(female_teacher);
-			}
+			}*/
 		} catch (e) {
 			console.log('ERROR', e);
 		}
@@ -73,7 +72,7 @@ const MainMenu = () => {
 					</Menu.Item>
 					<Menu.Item style={{ float: 'right' }}>
 						<Link to={Routes.PROFILE}>
-							<Avatar src={avatar} size={67} />
+							<Avatar src={male_student} size={67} />
 							MI PERFIL
 						</Link>
 					</Menu.Item>

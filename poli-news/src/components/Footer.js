@@ -3,8 +3,8 @@ import { Col, Layout, Row, Typography, Image, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import Routes from '../constants/Routes';
 import buho_1 from '../images/buho_1.png';
+import { useAuth } from '../lib/Auth';
 import { PhoneOutlined, MailOutlined, EnvironmentOutlined, FolderOpenOutlined } from '@ant-design/icons';
-import TermsConditions from './TermsConditions';
 
 const Footer = () => {
 	const { user } = useAuth();
