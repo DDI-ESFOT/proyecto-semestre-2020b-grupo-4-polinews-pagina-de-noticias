@@ -31,21 +31,15 @@ const CarouselEvents = () => {
 			{events.map((item) => {
 				return (
 					<>
-						<Row
-							justify="center"
-							style={{
-								marginTop: '2%',
-								textAlign: 'center',
-								alignContent: 'center',
-								marginLeft: '6%',
-							}}
-						>
+						<Row justify="center">
 							<Col span={12}>
-								<Title>{item.name}</Title>
-								<Title level={3}>{item.description}</Title>
+								<p className="my-text" style={{ color: '#ffbf0f' }}>
+									{item.name}
+								</p>
+								<p className="my-text">{item.description}</p>
 							</Col>
 							<Col span={12}>
-								<Image width={400} src={item.photo} />
+								<Image src={item.photo} />
 							</Col>
 						</Row>
 					</>

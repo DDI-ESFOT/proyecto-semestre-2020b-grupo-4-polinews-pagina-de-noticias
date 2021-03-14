@@ -5,7 +5,9 @@ import withAuth from '../hocs/withAuth';
 const CoursersPage = () => {
 	return (
 		<>
-			CURSOS
+			<hr />
+			<h1 className="my-title">CURSOS</h1>
+			<hr />
 			<Footer />
 		</>
 	);

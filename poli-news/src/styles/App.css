@@ -12,40 +12,79 @@ hr{
     border-color:#00A6ff;
 }
 
+.my-img{
+    position: absolute;
+    left: 0px; 
+    right: 0px; 
+    margin: auto; 
+}
+
 .my-title{
     color: #ffbf0f;
     font-size: 4rem;
     text-align: center;
 }
 
-.my-footer{
-    background-color: #151f33;
+.my-text{
+    color: aliceblue;
+    font-size: 2rem;
+    text-align: center;
 }
 
-.my-footer Title{
-    color: #ffbf0f;
+.my-btn{
+    color: aliceblue;
+    background-color: #ffbf0f;
+    font-size: 20px;
+    margin: 10% auto 15% auto;
+    width: fit-content;
 }
+
+.my-footer{
+    background-color: #151f33;
+    text-align: center;
+}
+
+.text-footer{
+    color: aliceblue;
+}
+
 .contacts {
     background-color: #134977;
+}
+
+.socialMedia{
+    color: #ffbf0f;
+    margin-top: 5%;
+    width: 100%;
+    text-align: center;
+}
+.socialMedia a{
+    color: #ffbf0f;
+}
+.socialMedia hr{
+    height: 0.5px;
+    width: 100%;
+    background-color: #ffbf0f;
+    border-color:#ffbf0f;
 }
 
 .square{
     align-items: center;
     border: 2.5px solid #00A6ff;
-    margin: 2% 20% auto 20%;
-
+    margin: 4% 20% 4% 20%;
 }
 
 .square-two{
     align-items: center;
     border: 2.5px dashed #ffbf0f;
-    margin: 2% 5% auto 5%;
-
+    margin: 5%;
 }
 
-
+.img-card{
+    width: 100%;
+}
 .my-card{
     width: 300; 
     text-align: 'center';
-    background-color: '#151f33'; 
+    background-color: #151f33;
 }

@@ -20,7 +20,12 @@ const contactItems = [
 	},
 	{
 		href: '',
-		text: <Link to={Routes.TERMS}> Terminos & Condiciones </Link>,
+		text: (
+			<Link to={Routes.TERMS} style={{ color: '#ffffff' }}>
+				{' '}
+				Terminos & Condiciones{' '}
+			</Link>
+		),
 		icon: <FolderOpenOutlined />,
 	},
 ];

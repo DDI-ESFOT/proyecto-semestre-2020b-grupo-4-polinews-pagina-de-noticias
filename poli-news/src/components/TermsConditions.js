@@ -29,9 +29,7 @@ function TermsConditions() {
 					propio riesgo y responsabilidad, por lo que deberán asegurarse de que dichos accesos y/o usos
 					cumplen con la legislación aplicable en su país.
 				</p>
-				<Button onClick={handleCancel}>
-					<Link to={Routes.REGISTER}>ACEPTO</Link>
-				</Button>
+				<Button onClick={handleCancel}>ACEPTO</Button>
 			</Modal>
 		</>
 	);

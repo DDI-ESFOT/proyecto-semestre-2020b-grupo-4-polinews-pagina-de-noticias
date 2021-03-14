@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Layout, Row, Typography, Image, Button } from 'antd';
+import { Col, Layout, Row, Image } from 'antd';
 import { Link } from 'react-router-dom';
 import buho_1 from '../images/buho_1.png';
 import { useAuth } from '../lib/Auth';
@@ -9,54 +9,68 @@ import menuLogout from '../constants/ItemsLogout';
 
 const Footer = () => {
 	const { user } = useAuth();
-	const { Title } = Typography;
 	const { Footer } = Layout;
 
 	return (
-		<Footer className="my-footer" style={{ textAlign: 'center' }}>
+		<Footer className="my-footer">
 			<Row>
 				<Col span={8}>
-					<Title level={3}> POLINEWS</Title>
+					<h2 className="text-footer">
+						POLINEWS <hr />
+					</h2>
 					<Image src={buho_1} width={420} />
 				</Col>
 				<Col span={8}>
-					<Title level={3}>SERVICIOS</Title>
+					<h2 className="text-footer">
+						SERVICIOS <hr />
+					</h2>
 					{user
 						? menuItems.map((item) => {
 								return (
 									<>
-										<Title level={5}>
-											<Link to={item.to}>{item.text}</Link>
-										</Title>
+										<h3>
+											<Link to={item.to} style={{ color: '#ffffff' }}>
+												{item.text}{' '}
+											</Link>
+										</h3>
 									</>
 								);
 						  })
 						: menuLogout.map((item) => {
 								return (
 									<>
-										<Title level={5}>
-											<Link to={item.to}>{item.text}</Link>
-										</Title>
+										<h3>
+											<Link to={item.to} style={{ color: '#ffffff' }}>
+												{item.text}
+											</Link>
+										</h3>
 									</>
 								);
 						  })}
 				</Col>
 				<Col span={8}>
-					<Title level={3}>CONTACTOS</Title>
+					<h2 className="text-footer">
+						CONTACTOS <hr />
+					</h2>
 					{contactItems.map((item) => {
 						return (
 							<>
-								<Title level={5}>
-									<a href={item.href} target="_blank" rel="noreferrer noopener">
+								<h2>
+									<a
+										className="text-footer"
+										href={item.href}
+										target="_blank"
+										rel="noreferrer noopener"
+									>
 										{item.icon} {item.text}
 									</a>
-								</Title>
+								</h2>
 							</>
 						);
 					})}
 				</Col>
 			</Row>
-			<Title level={5}>PoliNews ©2021 All rigth reserved</Title>
+			<h2 className="text-footer">PoliNews ©2021 All rigth reserved</h2>
 		</Footer>
 	);
 };

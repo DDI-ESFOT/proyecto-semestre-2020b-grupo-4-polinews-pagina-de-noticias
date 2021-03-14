@@ -31,21 +31,15 @@ const CarouselNews = () => {
 			{news.map((item) => {
 				return (
 					<>
-						<Row
-							justify="center"
-							style={{
-								marginTop: '2%',
-								textAlign: 'center',
-								alignContent: 'center',
-								marginLeft: '6%',
-							}}
-						>
+						<Row justify="center">
 							<Col span={12}>
-								<Title>{item.title}</Title>
-								<Title level={3}>{item.text}</Title>
+								<p className="my-text" style={{ color: '#ffbf0f' }}>
+									{item.title}
+								</p>
+								<p className="my-text">{item.text}</p>
 							</Col>
 							<Col span={12}>
-								<Image width={400} src={item.src} />
+								<Image src={item.src} />
 							</Col>
 						</Row>
 					</>
