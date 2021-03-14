@@ -5,7 +5,9 @@ import withAuth from '../hocs/withAuth';
 const CalendarPage = () => {
 	return (
 		<>
-			CALENDARIOOO
+			<hr />
+			<h1 className="my-title">CALENDARIO</h1>
+			<hr />
 			<Footer />
 		</>
 	);

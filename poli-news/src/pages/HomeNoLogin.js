@@ -10,7 +10,9 @@ const HomeNoLogin = () => {
 			<div className="square">
 				<Welcome />
 			</div>
+
 			<SocialMedia />
+
 			<Footer />
 		</>
 	);

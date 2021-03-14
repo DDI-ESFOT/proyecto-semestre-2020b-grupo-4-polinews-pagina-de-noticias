@@ -5,14 +5,17 @@ import FormEvent from '../components/FormEvent';
 import CarouselNews from '../components/CarouselNews';
 import Footer from '../components/Footer';
 import SocialMedia from '../components/SocialMedia';
-
+import CarouselEvents from '../components/CarouselEvents';
 const HomePage = () => {
 	const { Title } = Typography;
 
 	return (
 		<>
+			<hr />
+			<h1 className="my-title">POLINEWS</h1>
+			<hr />
 			<CarouselNews />
-
+			<CarouselEvents />
 			<SocialMedia />
 			<Row justify="center">
 				<Col>

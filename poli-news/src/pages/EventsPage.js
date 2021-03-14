@@ -5,7 +5,9 @@ import CardsEvents from '../components/CardsEvents';
 const EventsPage = () => {
 	return (
 		<>
-			EVENTOSS
+			<hr />
+			<h1 className="my-title">EVENTOS</h1>
+			<hr />
 			<div className="square-two">
 				<CardsEvents />
 			</div>

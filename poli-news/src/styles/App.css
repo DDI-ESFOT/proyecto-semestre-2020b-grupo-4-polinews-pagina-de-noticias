@@ -5,9 +5,23 @@ body{
     color: #ffbf0f;
 }
 
+hr{
+    height: 0.5px;
+    width: 50%;
+    background-color: #00A6ff;
+    border-color:#00A6ff;
+}
+
+.my-title{
+    color: #ffbf0f;
+    font-size: 4rem;
+    text-align: center;
+}
+
 .my-footer{
     background-color: #151f33;
 }
+
 .my-footer Title{
     color: #ffbf0f;
 }
@@ -25,6 +39,7 @@ body{
     margin: 2% 5% auto 5%;
 
 }
+
 
 .my-card{
     width: 300; 

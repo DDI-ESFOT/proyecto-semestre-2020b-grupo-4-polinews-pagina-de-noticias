@@ -54,7 +54,13 @@ const FormEvent = () => {
 				<Button type="primary" onClick={showModal}>
 					Crear Eventoo
 				</Button>
-				<Modal title="Crear Evento" visible={isModalVisible} footer={null} onCancel={handleCancel}>
+				<Modal
+					className="my-modal"
+					title="Crear Evento"
+					visible={isModalVisible}
+					footer={null}
+					onCancel={handleCancel}
+				>
 					<Form {...layout} name="create_event" onFinish={onFinish} validateMessages={validateMessages}>
 						<Form.Item name="name" label="Nombre del evento:" rules={[{ required: true }]}>
 							<Input />

@@ -76,7 +76,7 @@ const MainMenu = () => {
 					</Menu.Item>
 					<Menu.Item style={{ float: 'right' }}>
 						<Link to={Routes.PROFILE}>
-							<Avatar src={avatar} size={67} />
+							<Avatar src={avatar} size={60} />
 							MI PERFIL
 						</Link>
 					</Menu.Item>

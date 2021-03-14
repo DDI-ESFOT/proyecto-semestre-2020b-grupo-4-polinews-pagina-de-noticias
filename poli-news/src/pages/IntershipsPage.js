@@ -8,6 +8,9 @@ import Footer from '../components/Footer';
 const IntershipsPage = () => {
 	return (
 		<>
+			<hr />
+			<h1 className="my-title">PASANTIAS & VACANTES</h1>
+			<hr />
 			<Row justify="center">
 				<Col>
 					<h1>Ofertar pasantias</h1>

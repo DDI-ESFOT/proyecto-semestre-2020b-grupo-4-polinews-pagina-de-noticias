@@ -15,7 +15,7 @@ const menuItems = [
 	},
 	{
 		to: Routes.INTERSHIPS,
-		text: 'PASANTIAS & OFERTAS',
+		text: 'PASANTIAS & VACANTES',
 	},
 	{
 		to: Routes.CALENDAR,
