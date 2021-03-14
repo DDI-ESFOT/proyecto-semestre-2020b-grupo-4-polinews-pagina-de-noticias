@@ -9,7 +9,7 @@ import menuLogout from '../constants/ItemsLogout';
 
 const SeccionContacts = () => {
     const { Title } = Typography;
-    
+
     return (
         <div className="contacts" style={{ textAlign: 'center'}}>
             <Row>

@@ -65,8 +65,62 @@ function useAuthProvider() {
 		}
 	}
 
+	async function registerFormInterships(data) {
+		console.log('DATOSSSS FORMULARIO PASANTIAS', data);
+
+		try {
+			const { duration,  photo } = data;
+			console.log('photo:', photo);
+
+
+
+			data['duration'] = [Timestamp.fromDate(duration[0].toDate()), Timestamp.fromDate(duration[1].toDate())];
+
+			const ref = db.collection('interships').doc();
+			const id = ref.id;
+			const newData = { ...data, photo: '' };
+			await ref.set(
+				{
+					...newData,
+					id,
+				},
+				{ merge: true }
+			);
+
+			console.log('Document successfully written!');
+
+			//create storage ref
+
+			let storageRef = storage.ref();
+			const imgFile = storageRef.child(`interships/${id}`);
+			let task = imgFile.put(photo[0].originFileObj);
+			task.on(
+				'state_changed',
+
+				function progress(snap) {},
+
+				function error(err) {},
+
+				async function complete(err) {
+					// Upload completed successfully, now we can get the download URL
+
+					task.snapshot.ref.getDownloadURL().then(async (downloadURL) => {
+						console.log('public url:', downloadURL);
+
+						ref.set({ photo: downloadURL }, { merge: true });
+
+						console.log('public url saved on docs');
+					});
+				}
+			);
+			message.success('Oferta creada');
+		} catch (error) {
+			console.log('ERROR', error);
+			message.error(translateMessage(error));
+		}
+	}
 	async function registerFormEvents(data) {
-		console.log('DATOSSSS FORMULARIO EVENTO', data);
+		console.log('DATOSSSS FORMULARIO EVENTOS', data);
 
 		try {
 			const { date, time, photo } = data;
@@ -193,6 +247,7 @@ function useAuthProvider() {
 		login,
 		logout,
 		registerFormEvents,
+		registerFormInterships,
 		// sendPasswordResetEmail,
 		// confirmPasswordReset
 	};

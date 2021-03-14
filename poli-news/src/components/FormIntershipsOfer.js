@@ -1,11 +1,24 @@
 import React,{useState} from 'react';
 import {Form, Input, Button, Upload, Modal} from 'antd';
 import { DatePicker, Space } from 'antd';
-const {Item}=Form;
-const { RangePicker } = DatePicker;
+import {useAuth} from "../lib/Auth";
+import { UploadOutlined } from '@ant-design/icons';
 
 function FormIntershipsOfer() {
+
+	const {Item}=Form;
+	const { RangePicker } = DatePicker;
+	const {registerFormInterships}=useAuth();
 	const [isModalVisible, setIsModalVisible] = useState(false  );
+
+
+	const normFile = (e) => {
+		console.log('Upload event:', e);
+		if (Array.isArray(e)) {
+			return e;
+		}
+		return e && e.fileList;
+	};
 
 	const showModal = () => {
 		setIsModalVisible(true);
@@ -14,8 +27,10 @@ function FormIntershipsOfer() {
 	const handleCancel = () => {
 		setIsModalVisible(false);
 	};
-	const onFinish = (values) => {
-		console.log('Formulario de Ifertar pasantias', values);
+
+	const onFinish = (data) => {
+		console.log('Formulario de Ofertar pasantias', data);
+		registerFormInterships(data);
 	};
 	return (
 		<div >
@@ -25,10 +40,9 @@ function FormIntershipsOfer() {
 			</Button>
 			<Modal  title="" visible={isModalVisible} footer={null} onCancel={handleCancel}>
 
-				<Form name="Formulario">
-					<h1>Formulario para ofertar pasantías</h1>
+				<Form name="Formulario" onFinish={onFinish}>
 					<Item label="Cargo"
-						  name="cargo"
+						  name="load"
 						  rules={[{
 							  required:true,
 							  message:"Por favor ingrese el cargo"
@@ -37,7 +51,7 @@ function FormIntershipsOfer() {
 					</Item>
 
 					<Item label="Nombre de la empresa"
-						  name="nombre de la empresa"
+						  name="company_name"
 						  rules={[{
 							  required:true,
 							  message:"Por favor ingrese el nombre de la empresa"
@@ -46,7 +60,7 @@ function FormIntershipsOfer() {
 					</Item>
 
 					<Item label="Sueldo"
-						  name="ingrese el sueldo"
+						  name="salary"
 						  rules={[{
 							  required:true,
 							  message:"Por favor ingrese el sueldo"
@@ -54,18 +68,27 @@ function FormIntershipsOfer() {
 						<Input/>
 					</Item>
 
-					<Item label="Duración">
-						<Space direction="vertical" size={12}>
-							<RangePicker picker="day" />
-
-						</Space>
-
+					<Item name="duration" label="Duracion:" rules={[{ required: true }]}>
+						<RangePicker
+							dateRender={(current) => {
+								const style = {};
+								if (current.date() === 1) {
+									style.border = '1px solid #1890ff';
+									style.borderRadius = '50%';
+								}
+								return (
+									<div className="ant-picker-cell-inner" style={style}>
+										{current.date()}
+									</div>
+								);
+							}}
+						/>
 					</Item>
 
-
 					<h3>Infomación de contacto</h3>
+
 					<Item label="Nombre del encargado"
-						  name="nombre encargado"
+						  name="manager_name"
 						  rules={[{
 							  required:true,
 							  message:"Por favor ingrese el nombre del encargado"
@@ -74,7 +97,7 @@ function FormIntershipsOfer() {
 					</Item>
 
 					<Item label="Dirección pasantías"
-						  name="direccion"
+						  name="direction"
 						  rules={[{
 							  required:true,
 							  message:"Por favor ingrese la dirección donde se realizará la pasantía"
@@ -83,7 +106,7 @@ function FormIntershipsOfer() {
 					</Item>
 
 					<Item label="Correo electrónico"
-						  name="correo"
+						  name="email"
 						  rules={[{
 							  required:true,
 							  message:"Por favor ingrese el correo electrónico"
@@ -92,7 +115,7 @@ function FormIntershipsOfer() {
 					</Item>
 
 					<Item label="Teléfono/celular"
-						  name="celular"
+						  name="phone"
 						  rules={[{
 							  required:true,
 							  message:"Por favor ingrese su teléfono/celular"
@@ -100,28 +123,36 @@ function FormIntershipsOfer() {
 						<Input/>
 					</Item>
 
-					<h4>Descripción</h4>
+					<Item>
+						<h4>Descripción</h4>
 					<textarea className="text"
 							  label="Descripción"
-							  name="descripcion">
+							  name="description">
 
                  </textarea>
+					</Item>
 
+					<Item>
 					<h4>Requisitos del pasante</h4>
 					<textarea className="text1"
 							  label="Requisitos"
-							  name="Requisitos">
+							  name="requirements">
 
                  </textarea>
 
+					</Item>
+					<Item
+						name="photo"
+						label="Foto"
+						valuePropName="fileList"
+						getValueFromEvent={normFile}
+						extra="Selecciona un archivo .jpg"
+					>
+						<Upload name="logo" action={null} listType="picture">
+							<Button icon={<UploadOutlined />}>Click to upload</Button>
+						</Upload>
+					</Item>
 
-					<Upload>
-
-						<Button type="upload">Cargar imágenes
-
-						</Button>
-
-					</Upload>
 
 
 					<Item>
