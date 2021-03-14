@@ -8,8 +8,12 @@ body{
 .my-footer{
     background-color: #151f33;
 }
+
 .my-footer Title{
     color: #ffbf0f;
+}
+.contacts {
+    background-color: #134977;
 }
 
 .square{
