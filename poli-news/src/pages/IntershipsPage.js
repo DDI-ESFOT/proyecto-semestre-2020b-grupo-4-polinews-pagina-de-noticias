@@ -1,9 +1,9 @@
 import React from 'react';
 import withAuth from '../hocs/withAuth';
 import { Col, Image, Row } from 'antd';
-import FormEvent from '../components/FormEvent';
 import FormIntershipsOfer from '../components/FormIntershipsOfer';
 import Footer from '../components/Footer';
+import CardsInterships from "../components/CardsInterships";
 
 const IntershipsPage = () => {
 	return (
@@ -11,6 +11,7 @@ const IntershipsPage = () => {
 			<hr />
 			<h1 className="my-title">PASANTIAS & VACANTES</h1>
 			<hr />
+			<CardsInterships></CardsInterships>
 			<Row justify="center">
 				<Col>
 					<h1>Ofertar pasantias</h1>

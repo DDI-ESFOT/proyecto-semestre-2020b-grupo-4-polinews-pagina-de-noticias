@@ -123,22 +123,23 @@ function FormIntershipsOfer() {
 						<Input/>
 					</Item>
 
-					<Item>
-						<h4>Descripción</h4>
-					<textarea className="text"
-							  label="Descripción"
-							  name="description">
-
-                 </textarea>
+					<Item  label="Descripción"
+						   name="description"
+						   rules={[{
+							   required:true,
+							   message:"Por favor ingrese una descripción"
+						   }]}>
+						<Input.TextArea />
 					</Item>
 
-					<Item>
-					<h4>Requisitos del pasante</h4>
-					<textarea className="text1"
-							  label="Requisitos"
-							  name="requirements">
+					<Item label="Requisitos"
+						  name="requirements"
+						  rules={[{
+							  required:true,
+							  message:"Por favor ingrese unos requisitos"
+						  }]}>
 
-                 </textarea>
+						<Input.TextArea />
 
 					</Item>
 					<Item
