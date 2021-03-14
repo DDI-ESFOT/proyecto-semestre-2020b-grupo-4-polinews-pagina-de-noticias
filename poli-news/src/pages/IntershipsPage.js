@@ -11,11 +11,11 @@ const IntershipsPage = () => {
 			<hr />
 			<h1 className="my-title">PASANTIAS & VACANTES</h1>
 			<hr />
-			<CardsInterships></CardsInterships>
+			<CardsInterships/>
 			<Row justify="center">
 				<Col>
 					<h1>Ofertar pasantias</h1>
-					<FormIntershipsOfer></FormIntershipsOfer>
+					<FormIntershipsOfer/>
 				</Col>
 			</Row>
 			<Footer />

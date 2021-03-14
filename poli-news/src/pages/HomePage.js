@@ -6,6 +6,8 @@ import CarouselNews from '../components/CarouselNews';
 import Footer from '../components/Footer';
 import SocialMedia from '../components/SocialMedia';
 import CarouselEvents from '../components/CarouselEvents';
+import CardsInterships from "../components/CardsInterships";
+import CarouselInterships from "../components/CarouselInterships";
 const HomePage = () => {
 	const { Title } = Typography;
 
@@ -16,6 +18,7 @@ const HomePage = () => {
 			<hr />
 			<CarouselNews />
 			<CarouselEvents />
+			<CarouselInterships/>
 			<SocialMedia />
 			<Row justify="center">
 				<Col>
