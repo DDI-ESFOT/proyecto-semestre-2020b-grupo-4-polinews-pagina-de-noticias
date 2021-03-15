@@ -58,16 +58,14 @@ const FormPublicarCurso = () => {
 
   const [state, setState] = useState(true);
 
-  const changeState = (value) => {
-    if (value === "pago") {
-      setState(state);
-    } else {
-      setState(!state);
-    }
-  };
-
   function onChange(value) {
     console.log(value);
+    if (value == "pago") {
+      setState(state);
+    }
+    if (value == "gratuito") {
+      setState(!state);
+    }
   }
 
   const prefixSelector = (
@@ -246,6 +244,7 @@ const FormPublicarCurso = () => {
               }
               parser={(value) => value.replace(/\$\s?|(,*)/g, "")}
               onChange={onChange}
+              disabled={state}
             />
           </Form.Item>
           <Form.Item

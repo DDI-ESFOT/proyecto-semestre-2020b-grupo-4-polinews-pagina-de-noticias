@@ -196,7 +196,7 @@ function useAuthProvider() {
 
       const ref = db.collection("courses").doc();
       const id = ref.id;
-      const newData = { ...data, photo: "", value: 0 };
+      const newData = { ...data, photo: "" };
       await ref.set(
         {
           ...newData,
