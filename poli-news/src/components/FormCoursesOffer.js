@@ -82,7 +82,7 @@ const FormPublicarCurso = () => {
   }
 
   const normFile = (e) => {
-    console.log("Upload event:", e);
+    console.log("Upload course:", e);
     if (Array.isArray(e)) {
       return e;
     }
