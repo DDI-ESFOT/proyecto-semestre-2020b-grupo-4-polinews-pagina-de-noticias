@@ -10,8 +10,11 @@ const CoursersPage = () => {
       <hr />
       <h1 className="my-title">CURSOS</h1>
       <hr />
+      <div className="square-two">
+        <CardsCourses />
+      </div>
+
       <FormCoursesOffer />
-      <CardsCourses />
 
       <Footer />
     </>
