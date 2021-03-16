@@ -57,7 +57,6 @@ const CardsInterships = () => {
                                                 ':'+intership.duration[1].toDate().getMinutes()
                                         }
                                         description={intership.description}
-                                        action={<Button> Postulate ya!</Button>}
                                     />
                                     <Button> Postulate ya! </Button>
                                 </Card>
