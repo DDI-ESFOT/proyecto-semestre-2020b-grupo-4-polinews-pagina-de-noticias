@@ -38,7 +38,7 @@ const CardsCourses = () => {
                   hoverable
                   className="my-card"
                   style={{
-                    width: 300,
+                    width: 350,
                     textAlign: "center",
                     backgroundColor: "#151f33",
                     marginTop: "2%",
@@ -48,7 +48,13 @@ const CardsCourses = () => {
                 >
                   <Meta
                     title={
-                      "Empieza       " + course.date[0].toDate().getHours()
+                      "Empieza " +
+                      course.date[0].toDate() +
+                      " Hasta " +
+                      course.date[1].toDate() +
+                      "Profesor: " +
+                      course.name +
+                      course.lastName
                     }
                     description={course.description}
                   />

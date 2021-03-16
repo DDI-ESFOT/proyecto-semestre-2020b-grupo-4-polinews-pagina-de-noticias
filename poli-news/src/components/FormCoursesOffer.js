@@ -258,7 +258,7 @@ const FormPublicarCurso = () => {
             //getValueProps={{ defaultValue: 0 }}
           >
             <InputNumber
-              min={0}
+              //min={0}
               formatter={(value) => `$ ${value}`}
               //disabled={state}
               rules={[
