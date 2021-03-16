@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../components/Footer";
 import withAuth from "../hocs/withAuth";
-import FormCoursesOffer from "../components/FormCoursesOffer";
+import SectionOfferCourses from "../components/SectionOfferCourses";
 import CardsCourses from "../components/CardsCourses";
 
 const CoursersPage = () => {
@@ -14,7 +14,7 @@ const CoursersPage = () => {
         <CardsCourses />
       </div>
 
-      <FormCoursesOffer />
+      <SectionOfferCourses />
 
       <Footer />
     </>
