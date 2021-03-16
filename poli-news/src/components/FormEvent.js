@@ -51,7 +51,7 @@ const FormEvent = () => {
 	return (
 		<div>
 			<>
-				<Button type="primary" onClick={showModal}>
+				<Button className="my-btn" type="primary" onClick={showModal}>
 					Crear Eventoo
 				</Button>
 				<Modal

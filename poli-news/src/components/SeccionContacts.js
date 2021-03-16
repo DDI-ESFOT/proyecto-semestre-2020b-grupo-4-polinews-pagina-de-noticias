@@ -1,43 +1,34 @@
-import React from 'react';
-import { Col, Layout, Row, Typography, Image, Button } from 'antd';
-import { Link } from 'react-router-dom';
-import celular from '../images/celular.jpg';
-import { useAuth } from '../lib/Auth';
-import menuItems from '../constants/Items';
-import contactItems from '../constants/Contacts';
-import menuLogout from '../constants/ItemsLogout';
+import React, { useState } from 'react';
+import { Col, Row, Image, Button } from 'antd';
+import ContactsInfo from '../constants/ContactsInfo';
+import FormEvent from './FormEvent';
 
 const SeccionContacts = () => {
-    const { Title } = Typography;
+	const [indice, SetIndice] = useState(2);
 
-    return (
-        <div className="contacts" style={{ textAlign: 'center'}}>
-            <Row>
-                <Col span={24}>
-                    <Title level={3}> Promociona tu evento aquí!</Title>
-                </Col>
-            </Row>
-            <Row>
+	return (
+		<div className="contacts" style={{ textAlign: 'center' }}>
+			<Row justify="center">
+				<Col span={24}>
+					<h1 className="my-title">{ContactsInfo[indice].title}</h1>
+				</Col>
+			</Row>
+			<Row justify="center">
+				<Col span={12}>
+					<Image src={ContactsInfo[indice].src} width="100%" />
+				</Col>
 
-                <Col span={12}>
-
-                    <Image src={celular} width={420} />
-                </Col>
-
-                <Col span={6}>
-                   <h1>Crezcamos juntos</h1>
-                    <p style={{ textAlign: 'top'}}>
-                        Si deseas hacer un evento o saber de alguno
-                        que sea referente a la comunidad politécnica te invitamos
-                        a contactarnos.
-                    </p>
-
-                    <Button> Contáctanos </Button>
-                </Col>
-
-            </Row>
-
-        </div>
-    );
+				<Col span={12}>
+					<h1 className="my-text" style={{ color: '#ffbf0f' }}>
+						{ContactsInfo[indice].subtitle}
+					</h1>
+					<p className="my-text" style={{ textAlign: 'top' }}>
+						{ContactsInfo[indice].text}
+					</p>
+				</Col>
+				<FormEvent />
+			</Row>
+		</div>
+	);
 };
 export default SeccionContacts;
