@@ -61,23 +61,31 @@ const FormPublicarCurso = () => {
     console.log(value);
   }
 
-  const [state, setState] = useState(true);
+  const [free, setFree] = useState(true);
 
   function changeState(value) {
     console.log(value);
     if (value == "gratuito") {
-      setState(true);
-      console.log(state);
+      setFree(true);
+      console.log(free);
     } else {
-      setState(false);
-      console.log(state);
+      setFree(false);
+      console.log(free);
     }
   }
 
-  InputNumber.defaultProps = {
-    defaultValue: 0,
-    value: 0,
-  };
+  const [virtual, setVirtual] = useState(true);
+
+  function changeUbication(value) {
+    console.log(value);
+    if (value == "virtual") {
+      setVirtual(true);
+      console.log(virtual);
+    } else {
+      setVirtual(false);
+      console.log(virtual);
+    }
+  }
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
@@ -119,7 +127,7 @@ const FormPublicarCurso = () => {
   return (
     <>
       <Button type="primary" onClick={showModal}>
-        Publicar Curso
+        Formulario
       </Button>
       <Modal
         title="Formulario Publicar Curso"
@@ -213,7 +221,7 @@ const FormPublicarCurso = () => {
               showSearch
               placeholder="Seleccionar la modalidad"
               style={{ width: 200 }}
-              onChange={onChange}
+              onChange={changeUbication}
               onSearch={onSearch}
               allowClear
             >
@@ -221,23 +229,23 @@ const FormPublicarCurso = () => {
               <Option value="presencial">Presencial</Option>
             </Select>
           </Form.Item>
+          {!virtual && (
+            <Form.Item
+              name="ubication"
+              label="Ubicación"
+              rules={[
+                {
+                  required: true,
+                  message: "La ubicación es requerida!",
+                },
+              ]}
+            >
+              <TextArea rows={2} placeholder="Ingrese ubicación" />
+            </Form.Item>
+          )}
           <Form.Item
-            name="ubication"
-            label="Ubicación"
-            rules={[
-              {
-                required: true,
-                message:
-                  "La ubicación es requerida, si es modalidad virtual escribir el nombre de la plataforma",
-              },
-            ]}
-          >
-            <TextArea rows={2} placeholder="Ingrese ubicación" />
-          </Form.Item>
-
-          <Form.Item
-            name="cost"
-            label="Costo"
+            name="value"
+            label="Tipo de valor"
             rules={[{ required: true, message: "Un valor es requerido!" }]}
           >
             <Select
@@ -249,33 +257,36 @@ const FormPublicarCurso = () => {
               allowClear
             >
               <Option value="gratuito">Gratuito</Option>
-              <Option value="pago">No Gratuito</Option>
+              <Option value="pago">Pago</Option>
             </Select>
           </Form.Item>
-          <Form.Item
-            name="value"
-            label="Valor"
-            //getValueProps={{ defaultValue: 0 }}
-          >
-            <InputNumber
-              //min={0}
-              formatter={(value) => `$ ${value}`}
-              //disabled={state}
+          {!free && (
+            <Form.Item
+              name="cost"
+              label="Costo"
               rules={[
                 {
                   required: true,
-                  message: "valor requerido, si el valor es gratuito ingrese 0",
+                  message: "Costo requerido",
                 },
               ]}
-            />
-          </Form.Item>
+            >
+              <InputNumber
+                min={1}
+                defaultValue={1}
+                formatter={(value) => `$ ${value}`}
+              />
+            </Form.Item>
+          )}
+
           <Form.Item
             name="quota"
             label="Cupos"
             rules={[{ required: true, message: "Cupos requeridos" }]}
           >
             <InputNumber
-              min={1}
+              min={5}
+              defaultValue={5}
               placeholder="Cupos"
               onChange={onChange}
               allowClear

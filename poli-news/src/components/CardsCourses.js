@@ -47,17 +47,21 @@ const CardsCourses = () => {
                   cover={<img alt="Not Found Image" src={course.photo} />}
                 >
                   <Meta
-                    title={
-                      "Empieza " +
+                    title={"Profesor: " + course.name + course.lastName}
+                    description={
+                      "Empieza:  " +
                       course.date[0].toDate() +
-                      " Hasta " +
+                      "                     " +
+                      " Hasta:  " +
                       course.date[1].toDate() +
-                      "Profesor: " +
-                      course.name +
-                      course.lastName
+                      "                     " +
+                      course.description
                     }
-                    description={course.description}
+                    //description={" Hasta " + course.date[1].toDate()}
+                    //description={course.description}
                   />
+                  <br />
+                  <br />
                   <Button> INSCRIBIRSE </Button>
                 </Card>
               </Col>
