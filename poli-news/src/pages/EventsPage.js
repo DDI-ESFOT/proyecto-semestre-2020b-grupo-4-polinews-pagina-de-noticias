@@ -2,7 +2,7 @@ import React from 'react';
 import withAuth from '../hocs/withAuth';
 import Footer from '../components/Footer';
 import CardsEvents from '../components/CardsEvents';
-import SeccionContacts from '../components/SeccionContacts';
+import SectionContacts from '../components/SectionContacts';
 import SocialMedia from '../components/SocialMedia';
 
 const EventsPage = () => {
@@ -17,7 +17,7 @@ const EventsPage = () => {
 			</div>
 
 			<div>
-				<SeccionContacts />
+				<SectionContacts />
 			</div>
 
 			<div>

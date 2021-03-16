@@ -8,7 +8,7 @@ import SocialMedia from '../components/SocialMedia';
 import CarouselEvents from '../components/CarouselEvents';
 import CarouselInterships from '../components/CarouselInterships';
 import CarouselCourses from '../components/CarouselCourses';
-import SeccionContacts from '../components/SeccionContacts';
+import SectionContacts from '../components/SectionContacts';
 
 const HomePage = () => {
 	const { Title } = Typography;
@@ -40,7 +40,7 @@ const HomePage = () => {
 			</div>
 
 			<div>
-				<SeccionContacts />
+				<SectionContacts />
 			</div>
 
 			<Footer />
