@@ -12,6 +12,7 @@ import {
 import Modal from "antd/es/modal/Modal";
 import { UploadOutlined } from "@ant-design/icons";
 import { useAuth } from "../lib/Auth";
+import FormItem from "antd/lib/form/FormItem";
 
 const FormPublicarCurso = () => {
   const { RangePicker } = DatePicker;
@@ -52,21 +53,31 @@ const FormPublicarCurso = () => {
   };
 
   const onFinish = (values) => {
-    console.log("Formulario de Publicacion de Curso: ", values);
+    console.log("Formulario de Publicación de Curso: ", values);
     registerFormCourses(values);
   };
 
-  const [state, setState] = useState(true);
-
   function onChange(value) {
     console.log(value);
-    if (value == "pago") {
-      setState(state);
-    }
+  }
+
+  const [state, setState] = useState(true);
+
+  function changeState(value) {
+    console.log(value);
     if (value == "gratuito") {
-      setState(!state);
+      setState(true);
+      console.log(state);
+    } else {
+      setState(false);
+      console.log(state);
     }
   }
+
+  InputNumber.defaultProps = {
+    defaultValue: 0,
+    value: 0,
+  };
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
@@ -148,7 +159,7 @@ const FormPublicarCurso = () => {
             rules={[
               {
                 type: "email",
-                message: "El correo no es valido!",
+                message: "El correo no es válido!",
               },
               {
                 required: true,
@@ -163,7 +174,7 @@ const FormPublicarCurso = () => {
             name="phone"
             label="Celular"
             rules={[
-              { required: true, message: "Ingrese su numero de celular!" },
+              { required: true, message: "Ingrese su número de celular!" },
             ]}
           >
             <Input
@@ -183,7 +194,7 @@ const FormPublicarCurso = () => {
 
           <Form.Item
             name="photo"
-            label="Foto"
+            label="Imagen del curso"
             valuePropName="fileList"
             getValueFromEvent={normFile}
             extra="Selecciona un archivo .jpg"
@@ -212,10 +223,16 @@ const FormPublicarCurso = () => {
           </Form.Item>
           <Form.Item
             name="ubication"
-            label="Ubicacion"
-            rules={[{ required: true, message: "La ubicacion es requerida" }]}
+            label="Ubicación"
+            rules={[
+              {
+                required: true,
+                message:
+                  "La ubicación es requerida, si es modalidad virtual escribir el nombre de la plataforma",
+              },
+            ]}
           >
-            <Input style={{ width: "50%" }} placeholder="Ingrese ubicacion" />
+            <TextArea rows={2} placeholder="Ingrese ubicación" />
           </Form.Item>
 
           <Form.Item
@@ -227,7 +244,7 @@ const FormPublicarCurso = () => {
               showSearch
               placeholder="Selecciona un valor"
               style={{ width: 200 }}
-              onChange={onChange}
+              onChange={changeState}
               onSearch={onSearch}
               allowClear
             >
@@ -235,16 +252,21 @@ const FormPublicarCurso = () => {
               <Option value="pago">No Gratuito</Option>
             </Select>
           </Form.Item>
-          <Form.Item name="value" label="Valor">
+          <Form.Item
+            name="value"
+            label="Valor"
+            //getValueProps={{ defaultValue: 0 }}
+          >
             <InputNumber
-              defaultValue={0}
               min={0}
-              formatter={(value) =>
-                `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-              }
-              parser={(value) => value.replace(/\$\s?|(,*)/g, "")}
-              onChange={onChange}
-              disabled={state}
+              formatter={(value) => `$ ${value}`}
+              //disabled={state}
+              rules={[
+                {
+                  required: true,
+                  message: "valor requerido, si el valor es gratuito ingrese 0",
+                },
+              ]}
             />
           </Form.Item>
           <Form.Item
@@ -262,7 +284,7 @@ const FormPublicarCurso = () => {
 
           <Form.Item
             name="date"
-            label="Fecha de duracion:"
+            label="Fecha de duración:"
             rules={[{ required: true }]}
           >
             <RangePicker
@@ -283,7 +305,7 @@ const FormPublicarCurso = () => {
 
           <Form.Item
             name="time"
-            label="horas de inicio"
+            label="Hora de inicio"
             rules={[{ required: true }]}
           >
             <TimePicker />
@@ -291,29 +313,29 @@ const FormPublicarCurso = () => {
 
           <Form.Item
             name="hours"
-            label="Horas de duracion"
+            label="Horas de duración"
             rules={[{ required: true, message: "Horas requeridos" }]}
           >
             <InputNumber
               min={1}
-              placeholder="Horas"
               onChange={onChange}
+              formatter={(value) => `${value} horas`}
               allowClear
             />
           </Form.Item>
 
           <Form.Item
             name="description"
-            label="Descripcion"
-            rules={[{ required: true, message: "descripcion requerido!" }]}
+            label="Descripción"
+            rules={[{ required: true, message: "descripción requerido!" }]}
           >
             <TextArea rows={4} />
           </Form.Item>
 
           <Form.Item
             name="silabo"
-            label="Silabo"
-            rules={[{ required: true, message: "Silabo requerido!" }]}
+            label="Sílabo"
+            rules={[{ required: true, message: "Sílabo requerido!" }]}
           >
             <TextArea rows={8} />
           </Form.Item>

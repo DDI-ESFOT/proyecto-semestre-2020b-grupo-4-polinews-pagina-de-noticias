@@ -10,7 +10,7 @@ import {
   Modal,
 } from "antd";
 
-import "../Estilo/Formulario.css";
+import "../Styles/FormInscriptionCourses.css";
 
 const FormInscriptionCourses = () => {
   const [form] = Form.useForm();
@@ -28,11 +28,35 @@ const FormInscriptionCourses = () => {
           value: "agua",
           label: "Agua y Saneamiento",
         },
+        {
+          value: "redes",
+          label: "Redes y Telecomunicaciones",
+        },
+        {
+          value: "electromecánica",
+          label: "Electromecanica",
+        },
       ],
     },
     {
       value: "mecanica",
-      label: "Ing. Mecanica",
+      label: "Ing. Mecánica",
+    },
+    {
+      value: "sistemas",
+      label: "Ing. Software",
+    },
+    {
+      value: "petroleos",
+      label: "Ing. Geología Petróleos",
+    },
+    {
+      value: "civil",
+      label: "Ing. Civil y Ambiental",
+    },
+    {
+      value: "quimica",
+      label: "Ing. Química",
     },
   ];
 
