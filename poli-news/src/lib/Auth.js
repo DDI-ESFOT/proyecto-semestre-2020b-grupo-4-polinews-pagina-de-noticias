@@ -23,7 +23,7 @@ function useAuthProvider() {
 
 	const handleUser = (user) => {
 		if (user) {
-			// si tengo sesión activa
+			// usuario con sesion activa
 			setUser(user);
 
 			return user;
@@ -62,6 +62,18 @@ function useAuthProvider() {
 			message.error(translateMessage(error));
 			handleUser(false);
 			throw error;
+		}
+	}
+
+	async function fetchDataUser(uid) {
+		try {
+			const doc = await db.collection('users').doc(uid).get();
+			const data = await doc.data();
+			return data;
+
+			//SetDataUser(data);
+		} catch (e) {
+			console.log('ERROR', e);
 		}
 	}
 
@@ -271,12 +283,14 @@ function useAuthProvider() {
 	useEffect(() => {
 		// try {
 		const init = () => {
-			auth.onAuthStateChanged((user) => {
+			auth.onAuthStateChanged(async (user) => {
 				if (user) {
 					// User is signed in, see docs for a list of available properties
 					// https://firebase.google.com/docs/reference/js/firebase.User
 					console.log('SESIÓN ACTIVA', user);
-					handleUser(user);
+					const userData = await fetchDataUser(user.uid);
+
+					handleUser({ ...user, ...userData });
 
 					// history.replace(Routes.HOME);
 				} else {

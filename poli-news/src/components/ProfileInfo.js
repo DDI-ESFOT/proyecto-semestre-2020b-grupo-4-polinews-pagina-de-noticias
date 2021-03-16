@@ -12,20 +12,17 @@ import withAuth from '../hocs/withAuth';
 const ProfileInfo = () => {
 	const { user } = useAuth();
 	const [avatar, SetAvatar] = useState('');
-	const [dataUser, SetDataUser] = useState([]);
 
 	useEffect(() => {
-		fetchInfoUser();
-	}, [dataUser]);
+		fetchAvatar();
+	}, [user]);
 
-	const fetchInfoUser = async () => {
+	const fetchAvatar = async () => {
 		try {
 			const uid = await user.uid;
 			const doc = await db.collection('users').doc(uid).get();
 			const data = await doc.data();
-			console.log('dataaaaaaaaaaaaaaaaaaaa', doc.data);
 
-			SetDataUser(data);
 			if (data.gender == 'male') {
 				if (data.status == 'student') {
 					SetAvatar(male_student);
@@ -39,8 +36,6 @@ const ProfileInfo = () => {
 					SetAvatar(female_teacher);
 				}
 			}
-
-			//Setear Datos del Usuario con Sesion Activa
 		} catch (e) {
 			console.log('ERROR', e);
 		}
@@ -57,41 +52,41 @@ const ProfileInfo = () => {
 						Nombre:{'  '}
 						<h1 className="my-text" style={{ display: 'inline-block' }}>
 							{' '}
-							{dataUser.name}
+							{user.name}
 						</h1>
 					</h1>
 					<h1 className="text-title">
 						Apellido:{'  '}
 						<h1 className="my-text" style={{ display: 'inline-block' }}>
 							{' '}
-							{dataUser.lastname}
+							{user.lastname}
 						</h1>
 					</h1>
 					<h1 className="text-title">
 						Fecha de nacimiento:{'  '}
 						<h1 className="my-text" style={{ display: 'inline-block' }}>
-							{/*dataUser.date.toDate().getDate()*/}
+							{user.date.toDate().getDate()}
 						</h1>
 					</h1>
 					<h1 className="text-title">
 						Correo electrónico:{'  '}
 						<h1 className="my-text" style={{ display: 'inline-block' }}>
 							{' '}
-							{dataUser.email}
+							{user.email}
 						</h1>
 					</h1>
 					<h1 className="text-title">
 						Tipo de Usuario:{'  '}
 						<h1 className="my-text" style={{ display: 'inline-block' }}>
 							{' '}
-							{dataUser.status}
+							{user.status}
 						</h1>
 					</h1>
 					<h1 className="text-title">
 						Telefono:{'  '}
 						<h1 className="my-text" style={{ display: 'inline-block' }}>
 							{' '}
-							{dataUser.phone}
+							{user.phone}
 						</h1>
 					</h1>
 				</Col>
