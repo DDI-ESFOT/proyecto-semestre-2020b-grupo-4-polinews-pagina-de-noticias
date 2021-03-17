@@ -2,12 +2,29 @@ import React from "react";
 import Footer from "../components/Footer";
 import MenuProfile from "../components/MenuProfile";
 import withAuth from "../hocs/withAuth";
+import { Col, Row } from "antd";
 
 const ProfileCalendarPage = () => {
   return (
     <div>
-      <MenuProfile />
-      <h1>perfil Agenda</h1>
+      <Row justify="center">
+        <Col>
+          <hr />
+          <h1 className="my-title">POLINEWS</h1>
+          <hr />
+        </Col>
+      </Row>
+
+      <Row span={12}>
+        <Col>
+          <MenuProfile />
+        </Col>
+
+        <Col className="square-two" span={15}>
+          <h1>Agenda</h1>
+        </Col>
+      </Row>
+
       <Footer />
     </div>
   );
