@@ -17,6 +17,9 @@ import { AuthProvider } from "../lib/Auth";
 import ProfileCalendarPage from "../pages/ProfileCalendarPage";
 import ProfileNotePage from "../pages/ProfileNotePage";
 import ProfileCoursesPage from "../pages/ProfileCoursesPage";
+import EventesLevelOnePage from "../pages/EventesLevelOnePage";
+import CoursersLevelOnePage from "../pages/CoursersLevelOnePage";
+import IntershipsLevelOnePage from "../pages/IntershipsLevelOnePage";
 
 function App() {
   return (
@@ -27,8 +30,11 @@ function App() {
           <Route path="/" exact component={HomePage} />
           <Route path="/logout" component={HomeNoLogin} />
           <Route path="/events" component={EventsPage} />
+          <Route path="/events_level1" component={EventesLevelOnePage} />
           <Route path="/coursers" component={CoursersPage} />
+          <Route path="/coursers_level1" component={CoursersLevelOnePage} />
           <Route path="/interships" component={IntershipsPage} />
+          <Route path="/interships_level1" component={IntershipsLevelOnePage} />
           <Route path="/calendar" component={CalendarPage} />
           <Route path="/profile" component={ProfilePage} />
           <Route path="/terms_conditions" component={TermsConditions} />
