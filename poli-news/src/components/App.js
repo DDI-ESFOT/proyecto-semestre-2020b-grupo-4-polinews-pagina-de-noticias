@@ -17,6 +17,10 @@ import { AuthProvider } from "../lib/Auth";
 import ProfileCalendarPage from "../pages/ProfileCalendarPage";
 import ProfileNotePage from "../pages/ProfileNotePage";
 import ProfileCoursesPage from "../pages/ProfileCoursesPage";
+import CoursesPage1 from "../pages/CoursesPage1";
+import EventsPage1 from "../pages/EventsPage1";
+import IntershipsPage1 from "../pages/IntershipsPage1";
+import CalendarPage1 from "../pages/CalendarPage1";
 
 function App() {
   return (
@@ -37,6 +41,10 @@ function App() {
           <Route path="/profile_calendar" component={ProfileCalendarPage} />
           <Route path="/profile_notification" component={ProfileNotePage} />
           <Route path="/profile_courses" component={ProfileCoursesPage} />
+          <Route path="/courses_level1" component={CoursesPage1} />
+          <Route path="/events_level1" component={EventsPage1} />
+          <Route path="/interships_level1" component={IntershipsPage1} />
+          <Route path="/calendar_level1" component={CalendarPage1} />
           <Route component={NotFoundPage} />
         </Switch>
       </AuthProvider>
