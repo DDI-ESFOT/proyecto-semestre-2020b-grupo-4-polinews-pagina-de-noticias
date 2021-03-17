@@ -126,8 +126,8 @@ const FormPublicarCurso = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        Formulario
+      <Button className="my-btn" type="primary" onClick={showModal}>
+        Publicar
       </Button>
       <Modal
         title="Formulario Publicar Curso"

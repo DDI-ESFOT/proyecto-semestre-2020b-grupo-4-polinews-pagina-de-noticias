@@ -4,7 +4,7 @@ import { DatePicker, Space } from "antd";
 import { useAuth } from "../lib/Auth";
 import { UploadOutlined } from "@ant-design/icons";
 
-function FormIntershipsOfer() {
+function FormIntershipsOffer() {
   const { Item } = Form;
   const { RangePicker } = DatePicker;
   const { registerFormInterships } = useAuth();
@@ -33,7 +33,7 @@ function FormIntershipsOfer() {
   return (
     <div>
       <>
-        <Button type="primary" onClick={showModal}>
+        <Button className="my-btn" type="primary" onClick={showModal}>
           Ofertar Pasantias
         </Button>
         <Modal
@@ -207,4 +207,4 @@ function FormIntershipsOfer() {
   );
 }
 
-export default FormIntershipsOfer;
+export default FormIntershipsOffer;

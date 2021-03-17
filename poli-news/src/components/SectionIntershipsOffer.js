@@ -1,32 +1,32 @@
 import React from "react";
-import { Col, Row, Image, Button } from "antd";
+import { Col, Row, Image } from "antd";
 import ContactsInfo from "../constants/ContactsInfo";
-import FormCoursesOffer from "./FormCoursesOffer";
+import FormIntershipsOffer from "./FormIntershipsOffer";
 
-const SeccionOfferCourses = (indice) => {
+const SeccionIntershipsOffer = (indice) => {
   return (
     <div className="contacts" style={{ textAlign: "center" }}>
       <Row justify="center">
         <Col span={24}>
-          <h1 className="my-title">{ContactsInfo[2].title}</h1>
+          <h1 className="my-title">{ContactsInfo[3].title}</h1>
         </Col>
       </Row>
       <Row justify="center">
         <Col span={12}>
-          <Image src={ContactsInfo[2].src} width="100%" />
+          <Image src={ContactsInfo[3].src} width="100%" />
         </Col>
 
         <Col span={12}>
           <h1 className="my-text" style={{ color: "#ffbf0f" }}>
-            {ContactsInfo[2].subtitle}
+            {ContactsInfo[3].subtitle}
           </h1>
           <p className="my-text" style={{ textAlign: "top" }}>
-            {ContactsInfo[2].text}
+            {ContactsInfo[3].text}
           </p>
-          <FormCoursesOffer />
+          <FormIntershipsOffer />
         </Col>
       </Row>
     </div>
   );
 };
-export default SeccionOfferCourses;
+export default SeccionIntershipsOffer;
