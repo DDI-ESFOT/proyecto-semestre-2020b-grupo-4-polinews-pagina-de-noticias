@@ -6,6 +6,7 @@ import SocialMedia from "../components/SocialMedia";
 import CarouselEvents from "../components/CarouselEvents";
 import CarouselInterships from "../components/CarouselInterships";
 import AboutUs from "../components/AboutUs";
+import CarouselCourses from "../components/CarouselCourses";
 
 const HomeNoLogin = () => {
   return (
@@ -24,6 +25,10 @@ const HomeNoLogin = () => {
 
       <div className="square-two">
         <CarouselInterships />
+      </div>
+
+      <div className="square-two">
+        <CarouselCourses />
       </div>
 
       <div>

@@ -1,29 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { db } from "../firebase";
-import { Carousel, Typography, Row, Col, Image } from "antd";
+import React from "react";
+import { Carousel, Row, Col, Image } from "antd";
+import { useAuth } from "../lib/Auth";
 
 const CarouselEvents = () => {
-  const [events, setEvents] = useState([]);
 
-  useEffect(() => {
-    fetchEvents();
-  }, []);
-
-  const fetchEvents = async () => {
-    try {
-      const snap = await db.collection("events").get();
-      const docs = snap.docs.map((doc, index) => {
-        console.log("data", doc.data());
-        return { ...doc.data(), key: index };
-      });
-      console.log(docs);
-      setEvents(docs);
-
-      console.log("EVENTOS", docs);
-    } catch (e) {
-      console.log("ERROR", e);
-    }
-  };
+  const { events } = useAuth();
 
   return (
     <Carousel autoplay>

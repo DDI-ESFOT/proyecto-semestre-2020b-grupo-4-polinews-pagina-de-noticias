@@ -1,29 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Card, Row, Col, Button } from "antd";
-import { db } from "../firebase";
+import { useAuth } from "../lib/Auth";
 
 const CardsInterships = () => {
+
   const { Meta } = Card;
-  const [interships, setInterships] = useState([]);
-
-  useEffect(() => {
-    fetchInterships();
-  }, []);
-
-  const fetchInterships = async () => {
-    try {
-      const snap = await db.collection("interships").get();
-      const docs = snap.docs.map((doc, index) => {
-        console.log("data", doc.data());
-        return { ...doc.data(), key: index };
-      });
-      console.log(docs);
-      setInterships(docs);
-      console.log("Interships", docs);
-    } catch (e) {
-      console.log("ERROR", e);
-    }
-  };
+  const { interships } = useAuth();
 
   return (
     <>

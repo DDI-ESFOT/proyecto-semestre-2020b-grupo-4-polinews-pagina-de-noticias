@@ -1,29 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Card, Row, Col, Button } from "antd";
-import { db } from "../firebase";
+import { useAuth } from "../lib/Auth";
 
 const CardsCourses = () => {
+
   const { Meta } = Card;
-  const [courses, setCourses] = useState([]);
-
-  useEffect(() => {
-    fetchCourses();
-  }, []);
-
-  const fetchCourses = async () => {
-    try {
-      const snap = await db.collection("courses").get();
-      const docs = snap.docs.map((doc, index) => {
-        console.log("data", doc.data());
-        return { ...doc.data(), key: index };
-      });
-      console.log(docs);
-      setCourses(docs);
-      console.log("Courses", docs);
-    } catch (e) {
-      console.log("ERROR", e);
-    }
-  };
+  const { courses } = useAuth();
 
   return (
     <>
@@ -57,8 +39,8 @@ const CardsCourses = () => {
                       "                     " +
                       course.description
                     }
-                    //description={" Hasta " + course.date[1].toDate()}
-                    //description={course.description}
+                  //description={" Hasta " + course.date[1].toDate()}
+                  //description={course.description}
                   />
                   <br />
                   <br />

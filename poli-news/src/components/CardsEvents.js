@@ -1,29 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Card, Row, Col, Button } from "antd";
-import { db } from "../firebase";
+import { useAuth } from "../lib/Auth";
 
 const CardsEvents = () => {
+
   const { Meta } = Card;
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    fetchEvents();
-  }, []);
-
-  const fetchEvents = async () => {
-    try {
-      const snap = await db.collection("events").get();
-      const docs = snap.docs.map((doc, index) => {
-        console.log("data", doc.data());
-        return { ...doc.data(), key: index };
-      });
-      console.log(docs);
-      setEvents(docs);
-      console.log("EVENTS", docs);
-    } catch (e) {
-      console.log("ERROR", e);
-    }
-  };
+  const { events } = useAuth();
 
   return (
     <>

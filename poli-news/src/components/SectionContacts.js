@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Col, Row, Image, Button } from 'antd';
 import ContactsInfo from '../constants/ContactsInfo';
 import FormEvent from './FormEvent';
 
-const SeccionContacts = () => {
-	const [indice, SetIndice] = useState(2);
+const SeccionContacts = (indice) => {
+
 
 	return (
 		<div className="contacts" style={{ textAlign: 'center' }}>
 			<Row justify="center">
 				<Col span={24}>
-					<h1 className="my-title">{ContactsInfo[indice].title}</h1>
+					<h1 className="my-title">{ContactsInfo[0].title}</h1>
 				</Col>
 			</Row>
 			<Row justify="center">
 				<Col span={12}>
-					<Image src={ContactsInfo[indice].src} width="100%" />
+					<Image src={ContactsInfo[0].src} width="100%" />
 				</Col>
 
 				<Col span={12}>
 					<h1 className="my-text" style={{ color: '#ffbf0f' }}>
-						{ContactsInfo[indice].subtitle}
+						{ContactsInfo[0].subtitle}
 					</h1>
 					<p className="my-text" style={{ textAlign: 'top' }}>
-						{ContactsInfo[indice].text}
+						{ContactsInfo[0].text}
 					</p>
 				</Col>
 				<FormEvent />

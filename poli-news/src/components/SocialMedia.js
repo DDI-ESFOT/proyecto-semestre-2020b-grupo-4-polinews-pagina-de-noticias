@@ -11,7 +11,7 @@ const SocialMedia = () => {
     <Row justify="center">
       <Col className="socialMedia">
         <h1 className="my-title">NO TE OLVIDES DE SEGUIRNOS !!!</h1>
-        <hr />
+        <hr className="my-line" />
         <a
           href="https://www.facebook.com/"
           target="_blank"
@@ -49,7 +49,7 @@ const SocialMedia = () => {
             style={{ fontSize: "90px", display: "inline-block" }}
           />
         </a>
-        <hr />
+        <hr className="my-line" />
       </Col>
     </Row>
   );

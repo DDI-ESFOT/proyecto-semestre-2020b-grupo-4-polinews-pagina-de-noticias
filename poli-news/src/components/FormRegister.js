@@ -41,8 +41,8 @@ const FormRegister = () => {
     },
   };
 
-  const onFinish = (data) => {
-    register(data);
+  const onFinish = async (data) => {
+    await register(data);
   };
 
   const prefixSelector = (
@@ -191,8 +191,8 @@ const FormRegister = () => {
                 option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
               }
             >
-              <Option value="student">Estudiante</Option>
-              <Option value="teacher">Profesor</Option>
+              <Option value="estudiante">Estudiante</Option>
+              <Option value="profesor">Profesor</Option>
             </Select>
           </Form.Item>
           <Form.Item

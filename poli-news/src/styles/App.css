@@ -1,5 +1,4 @@
 @import "~antd/dist/antd.css";
-
 body {
   background-color: #2b3448;
   color: #ffbf0f;
@@ -10,6 +9,13 @@ hr {
   width: 50%;
   background-color: #00a6ff;
   border-color: #00a6ff;
+}
+
+.my-line {
+  height: 0.5px;
+  width: 100%;
+  background-color: #ffbf0f;
+  border-color: #ffbf0f;
 }
 
 .my-img {
@@ -38,11 +44,11 @@ hr {
   text-align: center;
 }
 
-.my-btn{
-    color: aliceblue;
-    background-color: #ffbf0f;
-    font-size: 20px;
-    width: fit-content;
+.my-btn {
+  color: aliceblue;
+  background-color: #ffbf0f;
+  font-size: 20px;
+  width: fit-content;
 }
 
 .my-footer {
@@ -64,14 +70,9 @@ hr {
   width: 100%;
   text-align: center;
 }
+
 .socialMedia a {
   color: #ffbf0f;
-}
-.socialMedia hr {
-  height: 0.5px;
-  width: 100%;
-  background-color: #ffbf0f;
-  border-color: #ffbf0f;
 }
 
 .square {
@@ -89,6 +90,7 @@ hr {
 .img-card {
   width: 100%;
 }
+
 .my-card {
   width: 300;
   text-align: "center";

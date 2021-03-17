@@ -2,6 +2,10 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth, db, storage, Timestamp } from "../firebase";
 import translateMessage from "../utils/Translate";
 import { message } from "antd";
+import male_student from "../images/male_student.png";
+import female_student from "../images/female_student.png";
+import female_teacher from "../images/female_teacher.png";
+import male_teacher from "../images/male_teacher.png";
 
 export const AuthContext = createContext(null);
 
@@ -20,6 +24,10 @@ export const useAuth = () => {
 
 function useAuthProvider() {
   const [user, setUser] = useState(null);
+  const [news, setNews] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [interships, setInterships] = useState([]);
 
   const handleUser = (user) => {
     if (user) {
@@ -80,6 +88,95 @@ function useAuthProvider() {
     }
   }
 
+  async function fetchAvatar(uid) {
+    try {
+      const doc = await db.collection("users").doc(uid).get();
+      const data = await doc.data();
+
+      if (data.gender == "male") {
+        if (data.status == "student") {
+          return (male_student);
+        } else {
+          return (male_teacher);
+        }
+      } else {
+        if (data.status == "student") {
+          return (female_student);
+        } else {
+          return (female_teacher);
+        }
+      }
+    } catch (e) {
+      console.log("ERROR", e);
+    }
+  };
+
+
+  async function fetchNews() {
+    try {
+      const snap = await db.collection("news").get();
+      const docs = snap.docs.map((doc, index) => {
+        console.log("data", doc.data());
+        return { ...doc.data(), key: index };
+      });
+      console.log(docs);
+      setNews(docs);
+      //setNews(news.docs);
+      console.log("NEWS", docs);
+    } catch (e) {
+      console.log("ERROR", e);
+    }
+  };
+
+  async function fetchCourses() {
+    try {
+      const snap = await db.collection("courses").get();
+      const docs = snap.docs.map((doc, index) => {
+        console.log("data", doc.data());
+        return { ...doc.data(), key: index };
+      });
+      console.log(docs);
+      setCourses(docs);
+
+      console.log("CURSOS", docs);
+    } catch (e) {
+      console.log("ERROR", e);
+    }
+  };
+
+  async function fetchEvents() {
+    try {
+      const snap = await db.collection("events").get();
+      const docs = snap.docs.map((doc, index) => {
+        console.log("data", doc.data());
+        return { ...doc.data(), key: index };
+      });
+      console.log(docs);
+      setEvents(docs);
+
+      console.log("EVENTOS", docs);
+    } catch (e) {
+      console.log("ERROR", e);
+    }
+  };
+
+  async function fetchInterships() {
+    try {
+      const snap = await db.collection("interships").get();
+      const docs = snap.docs.map((doc, index) => {
+        console.log("data", doc.data());
+        return { ...doc.data(), key: index };
+      });
+      console.log(docs);
+      setInterships(docs);
+
+      console.log("PASANTIAS", docs);
+    } catch (e) {
+      console.log("ERROR", e);
+    }
+  };
+
+
   async function registerFormInterships(data) {
     console.log("DATOSSSS FORMULARIO PASANTIAS", data);
 
@@ -113,9 +210,9 @@ function useAuthProvider() {
       task.on(
         "state_changed",
 
-        function progress(snap) {},
+        function progress(snap) { },
 
-        function error(err) {},
+        function error(err) { },
 
         async function complete(err) {
           // Upload completed successfully, now we can get the download URL
@@ -171,9 +268,9 @@ function useAuthProvider() {
       task.on(
         "state_changed",
 
-        function progress(snap) {},
+        function progress(snap) { },
 
-        function error(err) {},
+        function error(err) { },
 
         async function complete(err) {
           // Upload completed successfully, now we can get the download URL
@@ -227,9 +324,9 @@ function useAuthProvider() {
       task.on(
         "state_changed",
 
-        function progress(snap) {},
+        function progress(snap) { },
 
-        function error(err) {},
+        function error(err) { },
 
         async function complete(err) {
           // Upload completed successfully, now we can get the download URL
@@ -268,7 +365,7 @@ function useAuthProvider() {
     try {
       await auth.signOut();
       handleUser(false);
-    } catch (error) {}
+    } catch (error) { }
   }
 
   // const sendPasswordResetEmail = (email) => {
@@ -302,8 +399,10 @@ function useAuthProvider() {
           // https://firebase.google.com/docs/reference/js/firebase.User
           console.log("SESIÓN ACTIVA", user);
           const userData = await fetchDataUser(user.uid);
+          const avatar = await fetchAvatar(user.uid)
 
-          handleUser({ ...user, ...userData });
+          handleUser({ ...user, ...userData, avatar: avatar });
+
 
           // history.replace(Routes.HOME);
         } else {
@@ -313,7 +412,10 @@ function useAuthProvider() {
         }
       });
     };
-
+    fetchNews();
+    fetchEvents();
+    fetchCourses();
+    fetchInterships();
     init();
     // } catch (error) {
     //   console.log("NO USER");
@@ -322,6 +424,10 @@ function useAuthProvider() {
 
   return {
     user,
+    news,
+    events,
+    courses,
+    interships,
     register,
     login,
     logout,
