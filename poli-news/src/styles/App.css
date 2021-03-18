@@ -63,8 +63,11 @@ hr.line-divition {
   text-align: center;
 }
 
+.ant-form-item-required,
+.ant-form-item-extra,
+.ant-modal-title,
 .text-footer {
-  color: aliceblue;
+  color: aliceblue !important;
 }
 
 .contacts {
@@ -101,6 +104,11 @@ hr.line-divition {
 .my-card {
   width: 300;
   text-align: "center";
+  background-color: #151f33;
+}
+
+.ant-modal-content,
+.ant-modal-header {
   background-color: #151f33;
 }
 
