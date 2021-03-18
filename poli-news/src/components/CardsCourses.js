@@ -1,20 +1,36 @@
 import React from "react";
 import { Card, Row, Col, Button } from "antd";
 import { useAuth } from "../lib/Auth";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Routes from "../constants/Routes";
 
 const CardsCourses = () => {
   const { Meta } = Card;
   const { courses } = useAuth();
 
+  let history = useHistory();
+
+  const handleClick = async (id) => {
+    console.log("Huraaaaaaa", id);
+    history.push({
+      pathname: Routes.COURSERS_ONE,
+      search: "?query=abc",
+      state: { id: " " },
+    });
+  };
+
   return (
     <>
-      <Link to={Routes.COURSES_LEVEL1}>
-        <div className="site-card-wrapper">
-          <Row justify="center">
-            {courses.map((course, index) => {
-              return (
+      <div className="site-card-wrapper">
+        <Row justify="center">
+          {courses.map((course, index) => {
+            return (
+              <Button
+                style={{ height: "fit-content" }}
+                onClick={(event) => {
+                  handleClick(event.id);
+                }}
+              >
                 <Col span={8} key={index}>
                   <Card
                     title={course.courseName}
@@ -47,17 +63,19 @@ const CardsCourses = () => {
                         "                     " +
                         course.description
                       }
+                      //description={" Hasta " + course.date[1].toDate()}
+                      //description={course.description}
                     />
                     <br />
                     <br />
                     <Button> INSCRIBIRSE </Button>
                   </Card>
                 </Col>
-              );
-            })}
-          </Row>
-        </div>
-      </Link>
+              </Button>
+            );
+          })}
+        </Row>
+      </div>
     </>
   );
 };

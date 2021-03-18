@@ -1,21 +1,36 @@
 import React from "react";
 import { Card, Row, Col, Button } from "antd";
 import { useAuth } from "../lib/Auth";
+import { useHistory } from "react-router-dom";
 import Routes from "../constants/Routes";
-import { Link } from "react-router-dom";
 
 const CardsEvents = () => {
   const { Meta } = Card;
   const { events } = useAuth();
+  let history = useHistory();
+
+  const handleClick = async (id) => {
+    console.log("Huraaaaaaa", id);
+    history.push({
+      pathname: Routes.EVENTS_ONE,
+      search: "?query=abc",
+      state: { id: events.id },
+    });
+  };
 
   return (
     <>
-      <Link to={Routes.EVENTS_LEVEL1}>
-        <div className="site-card-wrapper">
-          <Row justify="center">
-            {events.map((event, index) => {
-              console.log("Time", event.time);
-              return (
+      <div className="site-card-wrapper">
+        <Row justify="center">
+          {events.map((event, index) => {
+            return (
+              <Button
+                type="link"
+                style={{ height: "fit-content" }}
+                onClick={(event) => {
+                  handleClick(event.id);
+                }}
+              >
                 <Col span={8} key={index}>
                   <Card
                     title={event.name}
@@ -50,11 +65,11 @@ const CardsEvents = () => {
                     <Button> ASISTIRE </Button>
                   </Card>
                 </Col>
-              );
-            })}
-          </Row>
-        </div>
-      </Link>
+              </Button>
+            );
+          })}
+        </Row>
+      </div>
     </>
   );
 };

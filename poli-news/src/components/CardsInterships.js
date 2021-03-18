@@ -1,20 +1,36 @@
 import React from "react";
 import { Card, Row, Col, Button } from "antd";
 import { useAuth } from "../lib/Auth";
-import { Link } from "react-router-dom";
 import Routes from "../constants/Routes";
+import { useHistory } from "react-router-dom";
 
 const CardsInterships = () => {
   const { Meta } = Card;
   const { interships } = useAuth();
+  let history = useHistory();
+
+  const handleClick = async (id) => {
+    console.log("Huraaaaaaa", id);
+    history.push({
+      pathname: Routes.INTERSHIPS_ONE,
+      search: "?query=abc",
+      state: { id: " " },
+    });
+  };
 
   return (
     <>
-      <Link to={Routes.INTERSHIPS_LEVEL1}>
-        <div className="site-card-wrapper">
-          <Row justify="center">
-            {interships.map((intership, index) => {
-              return (
+      <div className="site-card-wrapper">
+        <Row justify="center">
+          {interships.map((intership, index) => {
+            return (
+              <Button
+                type="link"
+                style={{ height: "fit-content" }}
+                onClick={(event) => {
+                  handleClick(event.id);
+                }}
+              >
                 <Col span={8} key={index}>
                   <Card
                     title={intership.load}
@@ -46,11 +62,11 @@ const CardsInterships = () => {
                     <Button> Postulate ya! </Button>
                   </Card>
                 </Col>
-              );
-            })}
-          </Row>
-        </div>
-      </Link>
+              </Button>
+            );
+          })}
+        </Row>
+      </div>
     </>
   );
 };

@@ -31,8 +31,11 @@ function App() {
           <Route path="/" exact component={HomePage} />
           <Route path="/logout" component={HomeNoLogin} />
           <Route path="/events" component={EventsPage} />
+          <Route path="/events_level1:id" component={EventesPage1} />
           <Route path="/coursers" component={CoursersPage} />
+          <Route path="/coursers_level1:id" component={CoursersPage1} />
           <Route path="/interships" component={IntershipsPage} />
+          <Route path="/interships_level1:id" component={IntershipsPage1} />
           <Route path="/calendar" component={CalendarPage} />
           <Route path="/profile" component={ProfilePage} />
           <Route path="/terms_conditions" component={TermsConditions} />
@@ -41,10 +44,6 @@ function App() {
           <Route path="/profile_calendar" component={ProfileCalendarPage} />
           <Route path="/profile_notification" component={ProfileNotePage} />
           <Route path="/profile_courses" component={ProfileCoursesPage} />
-          <Route path="/courses_level1" component={CoursesPage1} />
-          <Route path="/events_level1" component={EventsPage1} />
-          <Route path="/interships_level1" component={IntershipsPage1} />
-          <Route path="/calendar_level1" component={CalendarPage1} />
           <Route component={NotFoundPage} />
         </Switch>
       </AuthProvider>

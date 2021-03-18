@@ -52,8 +52,8 @@ const FormEvent = () => {
     },
   };
 
-  const onFinish = (data) => {
-    registerFormEvents(data);
+  const onFinish = async (data) => {
+    await registerFormEvents(data);
     console.log("Formulario de Evento", data);
   };
 
@@ -103,6 +103,7 @@ const FormEvent = () => {
                 }}
               />
             </Form.Item>
+
             <Form.Item
               name="status"
               label="Tipo de evento:"
@@ -123,18 +124,30 @@ const FormEvent = () => {
                 <Option value="alone">Solo yo</Option>
               </Select>
             </Form.Item>
-            <Form.Item name="time" label="Hora de inicio:">
+
+            <Form.Item
+              name="time"
+              label="Hora de inicio:"
+              rules={[{ required: true }]}
+            >
               <TimePicker defaultOpenValue={moment("00:00:00", "HH:mm:ss")} />
             </Form.Item>
-            <Form.Item name="description" label="Descripcion">
+
+            <Form.Item
+              name="description"
+              label="Descripcion"
+              rules={[{ required: true }]}
+            >
               <Input.TextArea />
             </Form.Item>
+
             <Form.Item
               name="photo"
               label="Foto"
               valuePropName="fileList"
               getValueFromEvent={normFile}
-              extra="Selecciona un archivo .jpg"
+              rules={[{ required: true }]}
+              extra="Selecciona un archivo .jpg o.png"
             >
               <Upload name="logo" action={null} listType="picture">
                 <Button icon={<UploadOutlined />}>Click to upload</Button>
