@@ -32,9 +32,12 @@ function App() {
           <Route path="/events" component={EventsPage} />
           <Route path="/events_level1" component={EventesLevelOnePage} />
           <Route path="/coursers" component={CoursersPage} />
-          <Route path="/coursers_level1" component={CoursersLevelOnePage} />
+          <Route path="/coursers_level1:id" component={CoursersLevelOnePage} />
           <Route path="/interships" component={IntershipsPage} />
-          <Route path="/interships_level1" component={IntershipsLevelOnePage} />
+          <Route
+            path="/interships_level1:id"
+            component={IntershipsLevelOnePage}
+          />
           <Route path="/calendar" component={CalendarPage} />
           <Route path="/profile" component={ProfilePage} />
           <Route path="/terms_conditions" component={TermsConditions} />

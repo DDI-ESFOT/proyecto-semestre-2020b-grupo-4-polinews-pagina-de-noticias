@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Image, Button } from "antd";
+import { useAuth } from "../lib/Auth";
+import { withRouter } from "react-router";
+import { useParams } from "react-router-dom";
 
 const CourseInfo = () => {
+  console.log("USE PARAMS", useParams());
+  const { id } = useParams();
+  //console.log("DATAAAAAA", fetchDataCourse(id));
+
+  const { fetchDataCourse } = useAuth();
+  const [course, setCourse] = useState([]);
+
+  const dataCourse = async () => {
+    const data = await fetchDataCourse(id);
+    setCourse(data);
+    console.log("SIII", data);
+  };
+
+  useEffect(() => {
+    dataCourse();
+
+    //info();
+  }, [id]);
+
   const onClick = () => {
-    console.log("Hi");
+    console.log("INSCRIBIRME");
   };
 
   return (
     <>
       <Row>
         <Col span={12}>
-          <h1 className="my-title">CourseName</h1>
+          <h1 className="my-title">{course.name}</h1>
           <h2 className="my-text">Descripcion del curso</h2>
           <Button className="my-btn" onClick={onClick}>
             {" "}
@@ -26,4 +48,4 @@ const CourseInfo = () => {
   );
 };
 
-export default CourseInfo;
+export default withRouter(CourseInfo);

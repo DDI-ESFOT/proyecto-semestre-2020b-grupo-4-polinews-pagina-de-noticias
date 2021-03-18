@@ -52,8 +52,8 @@ const FormEvent = () => {
     },
   };
 
-  const onFinish = (data) => {
-    registerFormEvents(data);
+  const onFinish = async (data) => {
+    await registerFormEvents(data);
     console.log("Formulario de Evento", data);
   };
 

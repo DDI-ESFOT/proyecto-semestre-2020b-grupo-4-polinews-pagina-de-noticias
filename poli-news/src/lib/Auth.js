@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth, db, storage, Timestamp } from "../firebase";
 import translateMessage from "../utils/Translate";
 import { message } from "antd";
+import { useParams } from "react-router-dom";
 import male_student from "../images/male_student.png";
 import female_student from "../images/female_student.png";
 import female_teacher from "../images/female_teacher.png";
@@ -28,6 +29,7 @@ function useAuthProvider() {
   const [courses, setCourses] = useState([]);
   const [events, setEvents] = useState([]);
   const [interships, setInterships] = useState([]);
+  const { id } = useParams();
 
   const handleUser = (user) => {
     if (user) {
@@ -95,22 +97,21 @@ function useAuthProvider() {
 
       if (data.gender == "male") {
         if (data.status == "student") {
-          return (male_student);
+          return male_student;
         } else {
-          return (male_teacher);
+          return male_teacher;
         }
       } else {
         if (data.status == "student") {
-          return (female_student);
+          return female_student;
         } else {
-          return (female_teacher);
+          return female_teacher;
         }
       }
     } catch (e) {
       console.log("ERROR", e);
     }
-  };
-
+  }
 
   async function fetchNews() {
     try {
@@ -126,7 +127,7 @@ function useAuthProvider() {
     } catch (e) {
       console.log("ERROR", e);
     }
-  };
+  }
 
   async function fetchCourses() {
     try {
@@ -142,7 +143,17 @@ function useAuthProvider() {
     } catch (e) {
       console.log("ERROR", e);
     }
-  };
+  }
+
+  async function fetchDataCourse(uid) {
+    try {
+      const doc = await db.collection("courses").doc(uid).get();
+      const data = await doc.data();
+      return data;
+    } catch (e) {
+      console.log("ERROR", e);
+    }
+  }
 
   async function fetchEvents() {
     try {
@@ -158,7 +169,7 @@ function useAuthProvider() {
     } catch (e) {
       console.log("ERROR", e);
     }
-  };
+  }
 
   async function fetchInterships() {
     try {
@@ -174,8 +185,7 @@ function useAuthProvider() {
     } catch (e) {
       console.log("ERROR", e);
     }
-  };
-
+  }
 
   async function registerFormInterships(data) {
     console.log("DATOSSSS FORMULARIO PASANTIAS", data);
@@ -210,9 +220,9 @@ function useAuthProvider() {
       task.on(
         "state_changed",
 
-        function progress(snap) { },
+        function progress(snap) {},
 
-        function error(err) { },
+        function error(err) {},
 
         async function complete(err) {
           // Upload completed successfully, now we can get the download URL
@@ -268,9 +278,9 @@ function useAuthProvider() {
       task.on(
         "state_changed",
 
-        function progress(snap) { },
+        function progress(snap) {},
 
-        function error(err) { },
+        function error(err) {},
 
         async function complete(err) {
           // Upload completed successfully, now we can get the download URL
@@ -324,9 +334,9 @@ function useAuthProvider() {
       task.on(
         "state_changed",
 
-        function progress(snap) { },
+        function progress(snap) {},
 
-        function error(err) { },
+        function error(err) {},
 
         async function complete(err) {
           // Upload completed successfully, now we can get the download URL
@@ -365,7 +375,7 @@ function useAuthProvider() {
     try {
       await auth.signOut();
       handleUser(false);
-    } catch (error) { }
+    } catch (error) {}
   }
 
   // const sendPasswordResetEmail = (email) => {
@@ -398,11 +408,13 @@ function useAuthProvider() {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
           console.log("SESIÓN ACTIVA", user);
+
+          console.log("PORFAVOOOOOR,", id);
+
           const userData = await fetchDataUser(user.uid);
-          const avatar = await fetchAvatar(user.uid)
+          const avatar = await fetchAvatar(user.uid);
 
           handleUser({ ...user, ...userData, avatar: avatar });
-
 
           // history.replace(Routes.HOME);
         } else {
@@ -412,6 +424,7 @@ function useAuthProvider() {
         }
       });
     };
+
     fetchNews();
     fetchEvents();
     fetchCourses();
@@ -434,6 +447,7 @@ function useAuthProvider() {
     registerFormEvents,
     registerFormInterships,
     registerFormCourses,
+    fetchDataCourse,
     // sendPasswordResetEmail,
     // confirmPasswordReset
   };

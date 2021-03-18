@@ -6,16 +6,11 @@ import Routes from "../constants/Routes";
 
 const CarouselCourses = () => {
   const { courses } = useAuth();
-
   let history = useHistory();
 
-  const handleClick = async (id) => {
-    console.log("Huraaaaaaa", id);
-    history.push({
-      pathname: Routes.COURSERS_ONE,
-      search: "?query=abc",
-      state: { id: " " },
-    });
+  const handleClick = async (uid) => {
+    console.log("HURRA!", uid);
+    history.push(`coursers_level1${uid}`);
   };
 
   return (
@@ -25,7 +20,9 @@ const CarouselCourses = () => {
           <>
             <Button
               type="link"
-              onClick={handleClick}
+              onClick={() => {
+                handleClick(item.id);
+              }}
               style={{ height: "fit-content" }}
             >
               <Row justify="center">
@@ -41,6 +38,7 @@ const CarouselCourses = () => {
                 <Col span={12}>
                   <Image src={item.photo} />
                 </Col>
+                <h1>{item.id}</h1>
               </Row>
             </Button>
           </>
