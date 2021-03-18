@@ -1,9 +1,10 @@
 import React from "react";
 import withAuth from "../hocs/withAuth";
 import { Col, Image, Row } from "antd";
-import FormIntershipsOfer from "../components/FormIntershipsOfer";
 import Footer from "../components/Footer";
 import CardsInterships from "../components/CardsInterships";
+import SocialMedia from "../components/SocialMedia";
+import SectionIntershipsOffer from "../components/SectionIntershipsOffer";
 
 const IntershipsPage = () => {
   return (
@@ -11,13 +12,18 @@ const IntershipsPage = () => {
       <hr />
       <h1 className="my-title">PASANTIAS & VACANTES</h1>
       <hr />
-      <CardsInterships />
-      <Row justify="center">
-        <Col>
-          <h1>Ofertar pasantias</h1>
-          <FormIntershipsOfer />
-        </Col>
-      </Row>
+      <div className="square-two">
+        <CardsInterships />
+      </div>
+
+      <div>
+        <SectionIntershipsOffer />
+      </div>
+
+      <div>
+        <SocialMedia />
+      </div>
+
       <Footer />
     </>
   );

@@ -22,6 +22,7 @@ const CarouselEvents = () => {
       {events.map((item) => {
         return (
           <>
+<<<<<<< HEAD
             <Button
               type="link"
               style={{ height: "fit-content" }}
@@ -41,6 +42,22 @@ const CarouselEvents = () => {
                 </Col>
               </Row>
             </Button>
+=======
+            <Row className="content" justify="center">
+              <Col span={12}>
+                <p className="my-text" style={{ color: "#ffbf0f" }}>
+                  {item.name}
+                </p>
+                <p className="my-text">{item.description}</p>
+              </Col>
+              <Col className="content" span={12}>
+                <Image
+                  src={item.photo}
+                  style={{ height: "100%", width: "100%", maxHeight: "350px" }}
+                />
+              </Col>
+            </Row>
+>>>>>>> 1b0bc7f205e8858bd774fac49908bca1c216d661
           </>
         );
       })}

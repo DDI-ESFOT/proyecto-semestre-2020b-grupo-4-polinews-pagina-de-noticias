@@ -11,6 +11,13 @@ hr {
   border-color: #00a6ff;
 }
 
+hr.line-divition {
+  height: 1px;
+  width: 100%;
+  background-color: #ffbf0f;
+  border-color: #ffbf0f;
+}
+
 .my-line {
   height: 0.5px;
   width: 100%;
@@ -103,4 +110,8 @@ hr {
 .ant-modal-content,
 .ant-modal-header {
   background-color: #151f33;
+}
+
+.content {
+  padding: 25px;
 }

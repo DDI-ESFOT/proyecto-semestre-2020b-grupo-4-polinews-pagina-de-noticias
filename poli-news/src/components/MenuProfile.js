@@ -14,7 +14,11 @@ const { SubMenu } = Menu;
 const MenuProfile = () => {
   return (
     <div>
-      <Menu theme={"dark"} style={{ width: 300 }} mode="inline">
+      <Menu
+        theme={"dark"}
+        style={({ width: 300 }, { fontSize: "1.2rem" })}
+        mode="inline"
+      >
         <Menu.Item key="1" icon={<CalendarOutlined />}>
           <Link to={Routes.PROFILE_CALENDAR}>Agenda</Link>
         </Menu.Item>

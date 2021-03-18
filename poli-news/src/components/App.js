@@ -17,9 +17,10 @@ import { AuthProvider } from "../lib/Auth";
 import ProfileCalendarPage from "../pages/ProfileCalendarPage";
 import ProfileNotePage from "../pages/ProfileNotePage";
 import ProfileCoursesPage from "../pages/ProfileCoursesPage";
-import EventesLevelOnePage from "../pages/EventesLevelOnePage";
-import CoursersLevelOnePage from "../pages/CoursersLevelOnePage";
-import IntershipsLevelOnePage from "../pages/IntershipsLevelOnePage";
+import CoursesPage1 from "../pages/CoursesPage1";
+import EventsPage1 from "../pages/EventsPage1";
+import IntershipsPage1 from "../pages/IntershipsPage1";
+import CalendarPage1 from "../pages/CalendarPage1";
 
 function App() {
   return (
@@ -30,14 +31,11 @@ function App() {
           <Route path="/" exact component={HomePage} />
           <Route path="/logout" component={HomeNoLogin} />
           <Route path="/events" component={EventsPage} />
-          <Route path="/events_level1:id" component={EventesLevelOnePage} />
+          <Route path="/events_level1:id" component={EventesPage1} />
           <Route path="/coursers" component={CoursersPage} />
-          <Route path="/coursers_level1:id" component={CoursersLevelOnePage} />
+          <Route path="/coursers_level1:id" component={CoursersPage1} />
           <Route path="/interships" component={IntershipsPage} />
-          <Route
-            path="/interships_level1:id"
-            component={IntershipsLevelOnePage}
-          />
+          <Route path="/interships_level1:id" component={IntershipsPage1} />
           <Route path="/calendar" component={CalendarPage} />
           <Route path="/profile" component={ProfilePage} />
           <Route path="/terms_conditions" component={TermsConditions} />

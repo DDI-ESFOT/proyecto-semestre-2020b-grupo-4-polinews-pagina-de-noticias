@@ -83,7 +83,6 @@ const FormEvent = () => {
             >
               <Input />
             </Form.Item>
-
             <Form.Item
               name="date"
               label="Fecha del evento:"
@@ -154,7 +153,6 @@ const FormEvent = () => {
                 <Button icon={<UploadOutlined />}>Click to upload</Button>
               </Upload>
             </Form.Item>
-
             <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
               <Button type="primary" htmlType="submit">
                 Crear

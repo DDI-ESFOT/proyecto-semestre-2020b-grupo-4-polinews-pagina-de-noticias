@@ -44,7 +44,13 @@ const CardsCourses = () => {
                       marginTop: "2%",
                       //color: '#ffffff',
                     }}
-                    cover={<img alt="Not Found Image" src={course.photo} />}
+                    cover={
+                      <img
+                        alt="Not Found Image"
+                        style={{ height: "350px", width: "350px" }}
+                        src={course.photo}
+                      />
+                    }
                   >
                     <Meta
                       title={"Profesor: " + course.name + course.lastName}

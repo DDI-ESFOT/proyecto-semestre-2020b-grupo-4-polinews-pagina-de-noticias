@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import withAuth from "../hocs/withAuth";
 import SectionOfferCourses from "../components/SectionOfferCourses";
 import CardsCourses from "../components/CardsCourses";
+import SocialMedia from "../components/SocialMedia";
 
 const CoursersPage = () => {
   return (
@@ -15,6 +16,10 @@ const CoursersPage = () => {
       </div>
 
       <SectionOfferCourses />
+
+      <div>
+        <SocialMedia />
+      </div>
 
       <Footer />
     </>
