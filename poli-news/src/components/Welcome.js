@@ -8,7 +8,7 @@ const Welcome = () => {
   return (
     <Row justify="center">
       <Col span={24}>
-        <img src={buho_2} width={777} className="my-img" />
+        <img src={buho_2} width={700} className="my-img" />
       </Col>
       <Row justify="center">
         <Col span={24} style={{ textAlign: "center", marginTop: "40px" }}>

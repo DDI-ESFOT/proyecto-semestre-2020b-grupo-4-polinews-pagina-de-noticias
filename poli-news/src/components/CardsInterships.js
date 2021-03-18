@@ -55,7 +55,8 @@ const CardsInterships = () => {
                       }
                       description={intership.description}
                     />
-                    <Button> Postulate ya! </Button>
+                    <br />
+                    <Button className="my-btn"> Postulate ya! </Button>
                   </Card>
                 </Col>
               </Button>

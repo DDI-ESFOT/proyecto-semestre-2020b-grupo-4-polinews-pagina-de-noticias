@@ -44,26 +44,6 @@ const EventInfo = () => {
             <Image src={event.photo} width="75%" />
           </Col>
         </Row>
-
-        <Row className="contacts">
-          <Col span={24}>
-            <h1 className="my-text">SILABO</h1>
-          </Col>
-
-          <Col xs={24} sm={12} md={12} lg={12} xl={12}>
-            <p className="my-text" style={{ textAlign: "top" }}>
-              {event.status}
-            </p>
-            <p className="my-text" style={{ textAlign: "top" }}>
-              {event.description}
-            </p>
-          </Col>
-
-          <Col xs={24} sm={12} md={12} lg={12} xl={12}>
-            <Image src={event.photo} width="75%" />
-            <p>{event.name}</p>
-          </Col>
-        </Row>
       </div>
     </>
   );

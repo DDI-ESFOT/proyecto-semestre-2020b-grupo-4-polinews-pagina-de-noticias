@@ -91,7 +91,7 @@ hr.line-divition {
 
 .square {
   align-items: center;
-  height: 420px;
+  height: 100%;
   border: 2.5px solid #00a6ff;
   margin: 4% 20% 4% 20%;
 }
