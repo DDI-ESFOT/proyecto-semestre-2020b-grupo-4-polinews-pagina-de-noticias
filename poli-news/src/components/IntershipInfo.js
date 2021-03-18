@@ -25,7 +25,7 @@ const IntershipInfo = () => {
             <h1 className="my-title">{intership.load}</h1>
           </Col>
 
-          <Col span={12}>
+          <Col   xs={24} sm={12} md={12} lg={12} xl={12}>
             <p
               className="my-text"
               style={({ textAlign: "top" }, { textAlign: "justify" })}
@@ -34,17 +34,17 @@ const IntershipInfo = () => {
             </p>
           </Col>
 
-          <Col span={12}>
+          <Col  xs={24} sm={12} md={12} lg={12} xl={12}>
             <Image src={intership.photo} width="75%" />
           </Col>
         </Row>
 
         <Row className="contacts">
-          <Col span={24}>
+          <Col  xs={24} sm={12} md={12} lg={12} xl={12}>
             <h1 className="my-text">SILABO</h1>
           </Col>
 
-          <Col span={12}>
+          <Col  xs={24} sm={12} md={12} lg={12} xl={12}>
             <p className="my-text" style={{ textAlign: "top" }}>
               {intership.company_name}
             </p>
@@ -53,7 +53,7 @@ const IntershipInfo = () => {
             </p>
           </Col>
 
-          <Col span={12}>
+          <Col xs={24} sm={12} md={12} lg={12} xl={12}>
             <Image src={intership.photo} width="75%" />
             <p>{intership.manager_name}</p>
             <p>{intership.email}</p>{" "}

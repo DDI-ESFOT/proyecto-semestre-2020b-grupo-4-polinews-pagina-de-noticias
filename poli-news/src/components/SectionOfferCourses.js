@@ -7,16 +7,16 @@ const SeccionOfferCourses = (indice) => {
   return (
     <div className="contacts" style={{ textAlign: "center" }}>
       <Row justify="center">
-        <Col span={24}>
+        <Col span={24} >
           <h1 className="my-title">{ContactsInfo[2].title}</h1>
         </Col>
       </Row>
       <Row justify="center">
-        <Col span={12}>
+        <Col  xs={24} sm={12} md={12} lg={12} xl={12}>
           <Image src={ContactsInfo[2].src} width="100%" />
         </Col>
 
-        <Col span={12}>
+        <Col  xs={24} sm={12} md={12} lg={12} xl={12}>
           <h1 className="my-text" style={{ color: "#ffbf0f" }}>
             {ContactsInfo[2].subtitle}
           </h1>

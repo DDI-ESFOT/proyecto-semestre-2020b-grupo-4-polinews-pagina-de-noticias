@@ -10,14 +10,14 @@ const ProfileInfo = () => {
   return (
     <>
       <Row justify="center">
-        <Col span={12}>
+        <Col xs={24} sm={12} md={12} lg={12} xl={12}>
           <Avatar
             src={user.avatar}
             size={420}
             style={{ border: "2.5px solid #ffbf0f" }}
           />
         </Col>
-        <Col span={12}>
+        <Col  xs={24} sm={12} md={12} lg={12} xl={12}>
           <h1 className="text-title">
             Nombre:{"  "}
             <h1 className="my-text" style={{ display: "inline-block" }}>

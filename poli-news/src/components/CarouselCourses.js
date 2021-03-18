@@ -24,39 +24,44 @@ const CarouselCourses = () => {
         <Carousel autoplay>
           {courses.map((item) => {
             return (
-              <>
-                <Button
-                  type="link"
-                  onClick={() => {
-                    handleClick(item.id);
-                  }}
-                  style={{ height: "fit-content" }}
-                >
-                  <div className="content">
-                    <Row className="content" justify="center">
-                      <Col span={12}>
-                        <p className="my-text" style={{ color: "#ffbf0f" }}>
-                          {item.courseName}
-                        </p>
-                        <p className="my-text">{item.description}</p>
-                        <br />
-                        <p className="my-text">Sílabo</p>
-                        <p className="my-text">{item.silabo}</p>
-                      </Col>
-                      <Col className="content" span={12}>
-                        <Image
-                          src={item.photo}
-                          style={{
-                            height: "100%",
-                            width: "100%",
-                            maxHeight: "350px",
-                          }}
-                        />
-                      </Col>
-                    </Row>
-                  </div>
-                </Button>
-              </>
+              <Button
+                type="link"
+                onClick={() => {
+                  handleClick(item.id);
+                }}
+                style={{ height: "fit-content" }}
+              >
+                <div className="content">
+                  <Row className="content" justify="center">
+                    <Col xs={24} sm={12} md={12} lg={12} xl={12}>
+                      <p className="my-text" style={{ color: "#ffbf0f" }}>
+                        {item.courseName}
+                      </p>
+                      <p className="my-text">{item.description}</p>
+                      <br />
+                      <p className="my-text">Sílabo</p>
+                      <p className="my-text">{item.silabo}</p>
+                    </Col>
+                    <Col
+                      className="content"
+                      xs={24}
+                      sm={12}
+                      md={12}
+                      lg={12}
+                      xl={12}
+                    >
+                      <Image
+                        src={item.photo}
+                        style={{
+                          height: "100%",
+                          width: "100%",
+                          maxHeight: "350px",
+                        }}
+                      />
+                    </Col>
+                  </Row>
+                </div>
+              </Button>
             );
           })}
         </Carousel>

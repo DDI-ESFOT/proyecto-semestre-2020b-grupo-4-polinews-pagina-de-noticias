@@ -18,13 +18,13 @@ const CarouselNews = () => {
             >
               <div className="content">
                 <Row className="content" justify="center">
-                  <Col span={12}>
+                  <Col  xs={24} sm={12} md={12} lg={12} xl={12}>
                     <p className="my-text" style={{ color: "#ffbf0f" }}>
                       {item.title}
                     </p>
                     <p className="my-text">{item.text}</p>
                   </Col>
-                  <Col className="content" span={12}>
+                  <Col className="content" xs={24} sm={12} md={12} lg={12} xl={12}>
                     <Image
                       src={item.src}
                       style={{

@@ -7,21 +7,22 @@ import menuItems from "../constants/Items";
 import contactItems from "../constants/Contacts";
 import menuLogout from "../constants/ItemsLogout";
 
+
 const Footer = () => {
   const { user } = useAuth();
   const { Footer } = Layout;
 
   return (
     <Footer className="my-footer">
-      <Row>
-        <Col span={8}>
+      <Row >
+        <Col  xs={24} sm={12} md={8} lg={8} xl={8}>
           <h2 className="text-footer">
             POLINEWS <hr />
           </h2>
 
           <Image src={buho_1} width={400} />
         </Col>
-        <Col span={8}>
+        <Col  xs={24} sm={12} md={8} lg={8} xl={8} >
           <h2 className="text-footer">
             SERVICIOS <hr />
           </h2>
@@ -49,7 +50,7 @@ const Footer = () => {
                 );
               })}
         </Col>
-        <Col span={8}>
+        <Col  xs={24} sm={12} md={8} lg={8} xl={8}>
           <h2 className="text-footer">
             CONTACTOS <hr />
           </h2>

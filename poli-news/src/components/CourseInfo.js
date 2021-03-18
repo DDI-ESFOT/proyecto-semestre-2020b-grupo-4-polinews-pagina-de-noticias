@@ -32,7 +32,7 @@ const CourseInfo = () => {
             <h1 className="my-title">{course.courseName}</h1>
           </Col>
 
-          <Col span={12}>
+          <Col  xs={24} sm={12} md={12} lg={12} xl={12}>
             <p
               className="my-text"
               style={({ textAlign: "top" }, { textAlign: "justify" })}
@@ -41,7 +41,7 @@ const CourseInfo = () => {
             </p>
           </Col>
 
-          <Col span={12}>
+          <Col   xs={24} sm={12} md={12} lg={12} xl={12}>
             <Image src={course.photo} width="75%" />
           </Col>
         </Row>
@@ -51,13 +51,13 @@ const CourseInfo = () => {
             <h1 className="my-text">SILABO</h1>
           </Col>
 
-          <Col span={12}>
+          <Col xs={24} sm={12} md={12} lg={12} xl={12}>
             <p className="my-text" style={{ textAlign: "top" }}>
               {course.silabo}
             </p>
           </Col>
 
-          <Col span={12}>
+          <Col xs={24} sm={12} md={12} lg={12} xl={12}>
             <Image src={course.photo} width="75%" />
             <p>{course.name}</p>
             <p>{course.email}</p>{" "}
