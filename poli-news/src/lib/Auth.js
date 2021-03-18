@@ -389,6 +389,13 @@ function useAuthProvider() {
       });
   }
 
+  const fetchCalendarEvents = async () => {
+    const coll = db.collection("events");
+    const snap = await coll.get();
+
+    return snap.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  };
+
   async function logout() {
     try {
       await auth.signOut();
@@ -466,6 +473,7 @@ function useAuthProvider() {
     fetchDataCourse,
     fetchDataIntership,
     fetchDataEvent,
+    fetchCalendarEvents,
     // sendPasswordResetEmail,
     // confirmPasswordReset
   };
