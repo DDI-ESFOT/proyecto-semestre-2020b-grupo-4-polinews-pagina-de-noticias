@@ -20,7 +20,7 @@ const ProfileCalendarPage = () => {
           <h1>Agenda</h1>
         </Col>
       </Row>
-
+      <hr className="line-divition" />
       <div className="square-two">
         <CarouselEvents />
       </div>

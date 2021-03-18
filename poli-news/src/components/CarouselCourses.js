@@ -3,7 +3,6 @@ import { useAuth } from "../lib/Auth";
 import { Carousel, Row, Col, Image } from "antd";
 
 const CarouselCourses = () => {
-
   const { courses } = useAuth();
 
   return (
@@ -11,7 +10,7 @@ const CarouselCourses = () => {
       {courses.map((item) => {
         return (
           <>
-            <Row justify="center">
+            <Row className="content" justify="center">
               <Col span={12}>
                 <p className="my-text" style={{ color: "#ffbf0f" }}>
                   {item.courseName}
@@ -21,8 +20,11 @@ const CarouselCourses = () => {
                 <p className="my-text">Sílabo</p>
                 <p className="my-text">{item.silabo}</p>
               </Col>
-              <Col span={12}>
-                <Image src={item.photo} />
+              <Col className="content" span={12}>
+                <Image
+                  src={item.photo}
+                  style={{ height: "100%", width: "100%", maxHeight: "350px" }}
+                />
               </Col>
             </Row>
           </>

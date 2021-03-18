@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import withAuth from "../hocs/withAuth";
 import { Col, Row } from "antd";
 import CarouselEvents from "../components/CarouselEvents";
+import NotificationContent from "../components/NotificationContent";
 
 const ProfileNotePage = () => {
   return (
@@ -17,10 +18,10 @@ const ProfileNotePage = () => {
 
       <Row justify="center">
         <Col className="square-two" span={15}>
-          <h1>Notificaciones</h1>
+          <NotificationContent />
         </Col>
       </Row>
-
+      <hr className="line-divition" />
       <div className="square-two">
         <CarouselEvents />
       </div>

@@ -29,7 +29,13 @@ const CardsEvents = () => {
                       marginTop: "2%",
                       //color: '#ffffff',
                     }}
-                    cover={<img alt="Not Found Image" src={event.photo} />}
+                    cover={
+                      <img
+                        style={{ height: "200px" }}
+                        alt="Not Found Image"
+                        src={event.photo}
+                      />
+                    }
                   >
                     <Meta
                       title={

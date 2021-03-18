@@ -5,6 +5,10 @@ import Footer from "../components/Footer";
 function CalendarPage1() {
   return (
     <div>
+      <hr />
+      <h1 className="my-title">CALENDARIO</h1>
+      <hr />
+
       <Footer />
     </div>
   );

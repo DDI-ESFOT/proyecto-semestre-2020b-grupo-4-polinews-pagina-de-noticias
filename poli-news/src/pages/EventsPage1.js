@@ -5,6 +5,10 @@ import Footer from "../components/Footer";
 const EventsPage1 = () => {
   return (
     <div>
+      <hr />
+      <h1 className="my-title">EVENTOS</h1>
+      <hr />
+
       <Footer />
     </div>
   );

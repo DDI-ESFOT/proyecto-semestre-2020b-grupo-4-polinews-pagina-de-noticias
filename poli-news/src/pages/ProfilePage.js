@@ -21,7 +21,7 @@ const ProfilePage = () => {
           <ProfileInfo />
         </Col>
       </Row>
-
+      <hr className="line-divition" />
       <div className="square-two">
         <CarouselEvents />
       </div>
