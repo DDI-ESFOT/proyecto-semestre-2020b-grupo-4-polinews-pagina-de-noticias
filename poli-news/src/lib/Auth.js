@@ -169,6 +169,16 @@ function useAuthProvider() {
     }
   }
 
+  async function fetchDataEvent(uid) {
+    try {
+      const doc = await db.collection("events").doc(uid).get();
+      const data = await doc.data();
+      return data;
+    } catch (e) {
+      console.log("ERROR", e);
+    }
+  }
+
   async function fetchInterships() {
     try {
       const snap = await db.collection("interships").get();
@@ -180,6 +190,16 @@ function useAuthProvider() {
       setInterships(docs);
 
       console.log("PASANTIAS", docs);
+    } catch (e) {
+      console.log("ERROR", e);
+    }
+  }
+
+  async function fetchDataIntership(uid) {
+    try {
+      const doc = await db.collection("interships").doc(uid).get();
+      const data = await doc.data();
+      return data;
     } catch (e) {
       console.log("ERROR", e);
     }
@@ -444,6 +464,8 @@ function useAuthProvider() {
     registerFormInterships,
     registerFormCourses,
     fetchDataCourse,
+    fetchDataIntership,
+    fetchDataEvent,
     // sendPasswordResetEmail,
     // confirmPasswordReset
   };

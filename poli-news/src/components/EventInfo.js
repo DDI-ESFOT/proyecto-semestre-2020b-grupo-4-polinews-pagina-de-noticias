@@ -3,21 +3,20 @@ import { Row, Col, Image } from "antd";
 import { useAuth } from "../lib/Auth";
 import { useParams } from "react-router-dom";
 
-const CourseInfo = () => {
+const EventInfo = () => {
   console.log("USE PARAMS", useParams());
   const { id } = useParams();
 
-  const { fetchDataCourse } = useAuth();
-  const [course, setCourse] = useState([]);
+  const { fetchDataEvent } = useAuth();
+  const [event, setEvent] = useState([]);
 
-  const dataCourse = async () => {
-    const data = await fetchDataCourse(id);
-    setCourse(data);
-    console.log("SIII", data);
+  const dataEvent = async () => {
+    const data = await fetchDataEvent(id);
+    setEvent(data);
   };
 
   useEffect(() => {
-    dataCourse();
+    dataEvent();
   }, [id]);
 
   const onClick = () => {
@@ -29,7 +28,7 @@ const CourseInfo = () => {
       <div style={{ textAlign: "center" }}>
         <Row className="content" justify="center">
           <Col span={24}>
-            <h1 className="my-title">{course.courseName}</h1>
+            <h1 className="my-title">{event.name}</h1>
           </Col>
 
           <Col span={12}>
@@ -37,12 +36,12 @@ const CourseInfo = () => {
               className="my-text"
               style={({ textAlign: "top" }, { textAlign: "justify" })}
             >
-              {course.description}
+              {event.description}
             </p>
           </Col>
 
           <Col span={12}>
-            <Image src={course.photo} width="75%" />
+            <Image src={event.photo} width="75%" />
           </Col>
         </Row>
 
@@ -53,14 +52,16 @@ const CourseInfo = () => {
 
           <Col span={12}>
             <p className="my-text" style={{ textAlign: "top" }}>
-              {course.silabo}
+              {event.status}
+            </p>
+            <p className="my-text" style={{ textAlign: "top" }}>
+              {event.description}
             </p>
           </Col>
 
           <Col span={12}>
-            <Image src={course.photo} width="75%" />
-            <p>{course.name}</p>
-            <p>{course.email}</p>{" "}
+            <Image src={event.photo} width="75%" />
+            <p>{event.name}</p>
           </Col>
         </Row>
       </div>
@@ -68,4 +69,4 @@ const CourseInfo = () => {
   );
 };
 
-export default CourseInfo;
+export default EventInfo;

@@ -3,33 +3,26 @@ import { Row, Col, Image } from "antd";
 import { useAuth } from "../lib/Auth";
 import { useParams } from "react-router-dom";
 
-const CourseInfo = () => {
-  console.log("USE PARAMS", useParams());
+const IntershipInfo = () => {
   const { id } = useParams();
+  const { fetchDataIntership } = useAuth();
+  const [intership, setIntership] = useState([]);
 
-  const { fetchDataCourse } = useAuth();
-  const [course, setCourse] = useState([]);
-
-  const dataCourse = async () => {
-    const data = await fetchDataCourse(id);
-    setCourse(data);
-    console.log("SIII", data);
+  const dataIntership = async () => {
+    const data = await fetchDataIntership(id);
+    setIntership(data);
   };
 
   useEffect(() => {
-    dataCourse();
+    dataIntership();
   }, [id]);
-
-  const onClick = () => {
-    console.log("INSCRIBIRME");
-  };
 
   return (
     <>
       <div style={{ textAlign: "center" }}>
         <Row className="content" justify="center">
           <Col span={24}>
-            <h1 className="my-title">{course.courseName}</h1>
+            <h1 className="my-title">{intership.load}</h1>
           </Col>
 
           <Col span={12}>
@@ -37,12 +30,12 @@ const CourseInfo = () => {
               className="my-text"
               style={({ textAlign: "top" }, { textAlign: "justify" })}
             >
-              {course.description}
+              {intership.description}
             </p>
           </Col>
 
           <Col span={12}>
-            <Image src={course.photo} width="75%" />
+            <Image src={intership.photo} width="75%" />
           </Col>
         </Row>
 
@@ -53,19 +46,21 @@ const CourseInfo = () => {
 
           <Col span={12}>
             <p className="my-text" style={{ textAlign: "top" }}>
-              {course.silabo}
+              {intership.company_name}
+            </p>
+            <p className="my-text" style={{ textAlign: "top" }}>
+              {intership.direction}
             </p>
           </Col>
 
           <Col span={12}>
-            <Image src={course.photo} width="75%" />
-            <p>{course.name}</p>
-            <p>{course.email}</p>{" "}
+            <Image src={intership.photo} width="75%" />
+            <p>{intership.manager_name}</p>
+            <p>{intership.email}</p>{" "}
           </Col>
         </Row>
       </div>
     </>
   );
 };
-
-export default CourseInfo;
+export default IntershipInfo;

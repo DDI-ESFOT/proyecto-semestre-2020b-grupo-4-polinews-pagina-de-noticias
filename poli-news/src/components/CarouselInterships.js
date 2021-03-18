@@ -1,20 +1,15 @@
 import React from "react";
 import { Carousel, Button, Row, Col, Image } from "antd";
 import { useAuth } from "../lib/Auth";
-import Routes from "../constants/Routes";
 import { useHistory } from "react-router-dom";
 
 const CarouselInterships = () => {
   const { interships } = useAuth();
   let history = useHistory();
 
-  const handleClick = async (id) => {
-    console.log("Huraaaaaaa", id);
-    history.push({
-      pathname: Routes.INTERSHIPS_ONE,
-      search: "?query=abc",
-      state: { id: " " },
-    });
+  const handleClick = async (uid) => {
+    console.log("HURRA!", uid);
+    history.push(`interships_level1${uid}`);
   };
 
   return (
@@ -27,26 +22,26 @@ const CarouselInterships = () => {
       </h1>
       <div className="square-two">
         <Carousel autoplay>
-          {interships.map((item) => {
+          {interships.map((intership) => {
             return (
               <Button
                 type="link"
                 style={{ height: "fit-content" }}
                 onClick={(event) => {
-                  handleClick(event.id);
+                  handleClick(intership.id);
                 }}
               >
                 <div className="content">
                   <Row className="content" justify="center">
                     <Col span={12}>
                       <p className="my-text" style={{ color: "#ffbf0f" }}>
-                        {item.load}
+                        {intership.load}
                       </p>
-                      <p className="my-text">{item.description}</p>
+                      <p className="my-text">{intership.description}</p>
                     </Col>
                     <Col className="content" span={12}>
                       <Image
-                        src={item.photo}
+                        src={intership.photo}
                         style={{
                           height: "100%",
                           width: "100%",

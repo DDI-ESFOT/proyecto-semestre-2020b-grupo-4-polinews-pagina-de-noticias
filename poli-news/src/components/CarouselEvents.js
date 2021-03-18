@@ -2,19 +2,14 @@ import React from "react";
 import { Carousel, Row, Col, Image, Button } from "antd";
 import { useAuth } from "../lib/Auth";
 import { useHistory } from "react-router-dom";
-import Routes from "../constants/Routes";
 
 const CarouselEvents = () => {
   const { events } = useAuth();
   let history = useHistory();
 
-  const handleClick = async (id) => {
-    console.log("Huraaaaaaa", id);
-    history.push({
-      pathname: Routes.EVENTS_ONE,
-      search: "?query=abc",
-      state: { id: events.id },
-    });
+  const handleClick = async (uid) => {
+    console.log("ID DE Carousel Event", uid);
+    history.push(`events_level1${uid}`);
   };
 
   return (
@@ -27,12 +22,13 @@ const CarouselEvents = () => {
       </h1>
       <div className="square-two">
         <Carousel autoplay>
-          {events.map((item) => {
+          {events.map((event) => {
+            console.log("MI ID", event.id);
             return (
               <Button
                 type="link"
                 style={{ height: "fit-content" }}
-                onClick={(event) => {
+                onClick={() => {
                   handleClick(event.id);
                 }}
               >
@@ -40,13 +36,13 @@ const CarouselEvents = () => {
                   <Row className="content" justify="center">
                     <Col span={12}>
                       <p className="my-text" style={{ color: "#ffbf0f" }}>
-                        {item.name}
+                        {event.name}
                       </p>
-                      <p className="my-text">{item.description}</p>
+                      <p className="my-text">{event.description}</p>
                     </Col>
                     <Col className="content" span={12}>
                       <Image
-                        src={item.photo}
+                        src={event.photo}
                         style={{
                           height: "100%",
                           width: "100%",

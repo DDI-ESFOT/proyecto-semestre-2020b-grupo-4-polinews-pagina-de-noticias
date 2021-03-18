@@ -1,7 +1,6 @@
 import React from "react";
 import withAuth from "../hocs/withAuth";
 import Footer from "../components/Footer";
-import InformationLevel1 from "../components/InfomationLevel1";
 import SocialMedia from "../components/SocialMedia";
 import CourseInfo from "../components/CourseInfo";
 

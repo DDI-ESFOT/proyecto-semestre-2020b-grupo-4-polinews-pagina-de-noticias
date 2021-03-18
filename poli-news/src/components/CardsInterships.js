@@ -9,13 +9,9 @@ const CardsInterships = () => {
   const { interships } = useAuth();
   let history = useHistory();
 
-  const handleClick = async (id) => {
-    console.log("Huraaaaaaa", id);
-    history.push({
-      pathname: Routes.INTERSHIPS_ONE,
-      search: "?query=abc",
-      state: { id: " " },
-    });
+  const handleClick = async (uid) => {
+    console.log("HURRA!", uid);
+    history.push(`interships_level1${uid}`);
   };
 
   return (
@@ -28,7 +24,7 @@ const CardsInterships = () => {
                 type="link"
                 style={{ height: "fit-content" }}
                 onClick={(event) => {
-                  handleClick(event.id);
+                  handleClick(intership.id);
                 }}
               >
                 <Col span={8} key={index}>
