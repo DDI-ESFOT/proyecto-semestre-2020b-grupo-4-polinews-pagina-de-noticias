@@ -25,7 +25,7 @@ const CardsCourses = () => {
                   handleClick(course.id);
                 }}
               >
-                <Col span={8} key={index}>
+                <Col  key={index} xs={24} sm={2} md={2} lg={2} xl={2}>
                   <Card
                     title={course.courseName}
                     bordered={false}

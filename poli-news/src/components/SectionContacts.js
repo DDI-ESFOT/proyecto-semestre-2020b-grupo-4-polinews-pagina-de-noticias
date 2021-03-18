@@ -12,11 +12,11 @@ const SeccionContacts = (indice) => {
         </Col>
       </Row>
       <Row justify="center">
-        <Col span={12}>
+        <Col xs={24} sm={12} md={12} lg={12} xl={12}>
           <Image src={ContactsInfo[0].src} width="100%" />
         </Col>
 
-        <Col span={12}>
+        <Col xs={24} sm={12} md={12} lg={12} xl={12}>
           <h1 className="my-text" style={{ color: "#ffbf0f" }}>
             {ContactsInfo[0].subtitle}
           </h1>

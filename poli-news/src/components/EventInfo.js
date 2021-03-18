@@ -31,7 +31,7 @@ const EventInfo = () => {
             <h1 className="my-title">{event.name}</h1>
           </Col>
 
-          <Col span={12}>
+          <Col  xs={24} sm={12} md={12} lg={12} xl={12}>
             <p
               className="my-text"
               style={({ textAlign: "top" }, { textAlign: "justify" })}
@@ -40,7 +40,7 @@ const EventInfo = () => {
             </p>
           </Col>
 
-          <Col span={12}>
+          <Col   xs={24} sm={12} md={12} lg={12} xl={12}>
             <Image src={event.photo} width="75%" />
           </Col>
         </Row>
@@ -50,7 +50,7 @@ const EventInfo = () => {
             <h1 className="my-text">SILABO</h1>
           </Col>
 
-          <Col span={12}>
+          <Col   xs={24} sm={12} md={12} lg={12} xl={12}>
             <p className="my-text" style={{ textAlign: "top" }}>
               {event.status}
             </p>
@@ -59,7 +59,7 @@ const EventInfo = () => {
             </p>
           </Col>
 
-          <Col span={12}>
+          <Col  xs={24} sm={12} md={12} lg={12} xl={12}>
             <Image src={event.photo} width="75%" />
             <p>{event.name}</p>
           </Col>

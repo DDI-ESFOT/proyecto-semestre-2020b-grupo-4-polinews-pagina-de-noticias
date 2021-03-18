@@ -9,7 +9,7 @@ const SocialMedia = () => {
 
   return (
     <Row justify="center">
-      <Col className="socialMedia">
+      <Col className="socialMedia" >
         <h1 className="my-title">NO TE OLVIDES DE SEGUIRNOS !!!</h1>
         <hr className="my-line" />
         <a

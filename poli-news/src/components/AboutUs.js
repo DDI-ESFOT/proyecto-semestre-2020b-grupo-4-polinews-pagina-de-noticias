@@ -33,7 +33,7 @@ const AboutUs = () => {
 
       <div style={{ margin: '2% 5%' }}>
         <Row justify="center" >
-          <Col span={6}>
+          <Col xs={24} sm={12} md={6} lg={6} xl={6}>
             <Card
               hoverable
               className="my-card"
@@ -43,7 +43,7 @@ const AboutUs = () => {
               <Meta title="Nathaly Bermeo " description="Programmer" />
             </Card>
           </Col>
-          <Col span={6}>
+          <Col xs={24} sm={12} md={6} lg={6} xl={6}>
             <Card
               hoverable
               className="my-card"
@@ -53,7 +53,7 @@ const AboutUs = () => {
               <Meta title="Michael Guanoluisa" description="Programmer" />
             </Card>
           </Col>
-          <Col span={6}>
+          <Col xs={24} sm={12} md={6} lg={6} xl={6}>
             <Card
               hoverable
               className="my-card"
@@ -63,7 +63,7 @@ const AboutUs = () => {
               <Meta title="Jose Luis Colcha" description="Programmer" />
             </Card>
           </Col>
-          <Col span={6}>
+          <Col xs={24} sm={12} md={6} lg={6} xl={6}>
             <Card
               hoverable
               className="my-card"
