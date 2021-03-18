@@ -3,6 +3,7 @@ import withAuth from "../hocs/withAuth";
 import Footer from "../components/Footer";
 import InformationLevel1 from "../components/InfomationLevel1";
 import SocialMedia from "../components/SocialMedia";
+import CourseInfo from "../components/CourseInfo";
 
 const CoursesPage1 = () => {
   return (
@@ -13,7 +14,7 @@ const CoursesPage1 = () => {
 
       <hr className="line-divition" />
 
-      <InformationLevel1 />
+      <CourseInfo />
       <SocialMedia />
       <Footer />
     </div>
