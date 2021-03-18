@@ -12,9 +12,7 @@ const EventsPage = () => {
       <h1 className="my-title">EVENTOS</h1>
       <hr />
 
-      <div className="square-two">
-        <CardsEvents />
-      </div>
+      <CardsEvents />
 
       <div>
         <SectionContacts />

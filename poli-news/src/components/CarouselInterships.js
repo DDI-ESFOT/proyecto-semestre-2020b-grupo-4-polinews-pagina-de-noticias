@@ -6,28 +6,42 @@ const CarouselInterships = () => {
   const { interships } = useAuth();
 
   return (
-    <Carousel autoplay>
-      {interships.map((item) => {
-        return (
-          <>
-            <Row className="content" justify="center">
-              <Col span={12}>
-                <p className="my-text" style={{ color: "#ffbf0f" }}>
-                  {item.load}
-                </p>
-                <p className="my-text">{item.description}</p>
-              </Col>
-              <Col className="content" span={12}>
-                <Image
-                  src={item.photo}
-                  style={{ height: "100%", width: "100%", maxHeight: "350px" }}
-                />
-              </Col>
-            </Row>
-          </>
-        );
-      })}
-    </Carousel>
+    <>
+      <h1
+        className="text-title"
+        style={{ border: "2.5px solid #ffbf0f", margin: "5%" }}
+      >
+        PASANTIAS & VACANTES
+      </h1>
+      <div className="square-two">
+        <Carousel autoplay>
+          {interships.map((item) => {
+            return (
+              <div className="content">
+                <Row className="content" justify="center">
+                  <Col span={12}>
+                    <p className="my-text" style={{ color: "#ffbf0f" }}>
+                      {item.load}
+                    </p>
+                    <p className="my-text">{item.description}</p>
+                  </Col>
+                  <Col className="content" span={12}>
+                    <Image
+                      src={item.photo}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        maxHeight: "350px",
+                      }}
+                    />
+                  </Col>
+                </Row>
+              </div>
+            );
+          })}
+        </Carousel>
+      </div>
+    </>
   );
 };
 export default CarouselInterships;

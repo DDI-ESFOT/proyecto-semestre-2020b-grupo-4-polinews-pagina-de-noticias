@@ -18,7 +18,8 @@ const Footer = () => {
           <h2 className="text-footer">
             POLINEWS <hr />
           </h2>
-          <Image src={buho_1} width={420} />
+
+          <Image src={buho_1} width={400} />
         </Col>
         <Col span={8}>
           <h2 className="text-footer">

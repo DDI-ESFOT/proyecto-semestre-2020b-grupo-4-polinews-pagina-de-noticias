@@ -1,52 +1,49 @@
-import React from 'react';
-import withAuth from '../hocs/withAuth';
-import CarouselNews from '../components/CarouselNews';
-import Footer from '../components/Footer';
-import SocialMedia from '../components/SocialMedia';
-import CarouselEvents from '../components/CarouselEvents';
-import CarouselInterships from '../components/CarouselInterships';
-import CarouselCourses from '../components/CarouselCourses';
-import SectionContacts from '../components/SectionContacts';
-import AboutUs from '../components/AboutUs';
+import React from "react";
+import withAuth from "../hocs/withAuth";
+import CarouselNews from "../components/CarouselNews";
+import Footer from "../components/Footer";
+import SocialMedia from "../components/SocialMedia";
+import CarouselEvents from "../components/CarouselEvents";
+import CarouselInterships from "../components/CarouselInterships";
+import CarouselCourses from "../components/CarouselCourses";
+import SectionContacts from "../components/SectionContacts";
+import AboutUs from "../components/AboutUs";
 
 const HomePage = () => {
+  return (
+    <>
+      <hr />
+      <h1 className="my-title">POLINEWS</h1>
+      <hr />
 
-	return (
-		<>
-			<hr />
-			<h1 className="my-title">POLINEWS</h1>
-			<hr />
+      <CarouselNews />
 
-			<div className="square-two">
-				<CarouselNews />
-			</div>
+      <hr className="line-divition" />
 
-			<div className="square-two">
-				<CarouselEvents />
-			</div>
+      <CarouselEvents />
 
-			<div className="square-two">
-				<CarouselInterships />
-			</div>
+      <hr className="line-divition" />
 
-			<div className="square-two">
-				<CarouselCourses />
-			</div>
+      <CarouselCourses />
 
-			<div>
-				<SocialMedia indice={0} />
-			</div>
+      <hr className="line-divition" />
 
-			<div>
-				<SectionContacts />
-			</div>
+      <CarouselInterships />
 
-			<div>
-				<AboutUs />
-			</div>
+      <div>
+        <SocialMedia indice={0} />
+      </div>
 
-			<Footer />
-		</>
-	);
+      <div>
+        <SectionContacts />
+      </div>
+
+      <div>
+        <AboutUs />
+      </div>
+
+      <Footer />
+    </>
+  );
 };
 export default withAuth(HomePage);
