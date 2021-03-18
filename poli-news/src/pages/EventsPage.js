@@ -2,7 +2,7 @@ import React from "react";
 import withAuth from "../hocs/withAuth";
 import Footer from "../components/Footer";
 import CardsEvents from "../components/CardsEvents";
-import SectionContacts from "../components/SectionContacts";
+import SectionEventOffer from "../components/SectionEventOffer";
 import SocialMedia from "../components/SocialMedia";
 
 const EventsPage = () => {
@@ -12,10 +12,12 @@ const EventsPage = () => {
       <h1 className="my-title">EVENTOS</h1>
       <hr />
 
-      <CardsEvents />
+      <div className="square-two">
+        <CardsEvents />
+      </div>
 
       <div>
-        <SectionContacts />
+        <SectionEventOffer />
       </div>
 
       <div>

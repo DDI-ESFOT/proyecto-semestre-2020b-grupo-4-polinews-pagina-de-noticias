@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Row, Col, Button } from "antd";
 import { useAuth } from "../lib/Auth";
 import { useHistory } from "react-router-dom";
+import FormEvent from "./FormEvent";
 
 const CardsEvents = () => {
   const { Meta } = Card;
@@ -13,6 +14,9 @@ const CardsEvents = () => {
     history.push(`events_level1${uid}`);
   };
 
+  const onClick = () => {
+    return <FormEvent />;
+  };
   return (
     <>
       <div className="site-card-wrapper">
@@ -20,6 +24,7 @@ const CardsEvents = () => {
           {events.map((event, index) => {
             return (
               <Button
+                type="link"
                 style={{ height: "fit-content" }}
                 onClick={() => {
                   handleClick(event.id);
@@ -50,10 +55,14 @@ const CardsEvents = () => {
                       title={event.name}
                       description={
                         "Empieza:  " +
-                        event.date[0].toDate() +
+                        event.date[0].toDate().getDate() +
+                        "/" +
+                        event.date[0].toDate().getMonth() +
                         "                     " +
                         " Hasta:  " +
-                        event.date[1].toDate() +
+                        event.date[1].toDate().getDate() +
+                        "/" +
+                        event.date[1].toDate().getMonth() +
                         "                     " +
                         event.description
                       }
@@ -62,7 +71,10 @@ const CardsEvents = () => {
                     />
                     <br />
                     <br />
-                    <Button> INSCRIBIRSE </Button>
+                    <Button className="my-btn" onClick={onClick}>
+                      {" "}
+                      INSCRIBIRSE{" "}
+                    </Button>
                   </Card>
                 </Col>
               </Button>

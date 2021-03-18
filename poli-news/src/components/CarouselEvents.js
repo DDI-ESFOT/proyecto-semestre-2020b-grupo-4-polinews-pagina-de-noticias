@@ -25,34 +25,36 @@ const CarouselEvents = () => {
           {events.map((event) => {
             console.log("MI ID", event.id);
             return (
-              <Button
-                type="link"
-                style={{ height: "fit-content" }}
-                onClick={() => {
-                  handleClick(event.id);
-                }}
-              >
-                <div className="content">
-                  <Row className="content" justify="center">
-                    <Col span={12}>
-                      <p className="my-text" style={{ color: "#ffbf0f" }}>
-                        {event.name}
-                      </p>
-                      <p className="my-text">{event.description}</p>
-                    </Col>
-                    <Col className="content" span={12}>
-                      <Image
-                        src={event.photo}
-                        style={{
-                          height: "100%",
-                          width: "100%",
-                          maxHeight: "350px",
-                        }}
-                      />
-                    </Col>
-                  </Row>
-                </div>
-              </Button>
+              <>
+                <Button
+                  type="link"
+                  style={{ height: "fit-content" }}
+                  onClick={() => {
+                    handleClick(event.id);
+                  }}
+                >
+                  <div className="content">
+                    <Row className="content" justify="center">
+                      <Col span={12}>
+                        <p className="my-text" style={{ color: "#ffbf0f" }}>
+                          {event.name}
+                        </p>
+                        <p className="my-text">{event.description}</p>
+                      </Col>
+                      <Col className="content" span={12}>
+                        <Image
+                          src={event.photo}
+                          style={{
+                            height: "100%",
+                            width: "100%",
+                            maxHeight: "350px",
+                          }}
+                        />
+                      </Col>
+                    </Row>
+                  </div>
+                </Button>
+              </>
             );
           })}
         </Carousel>

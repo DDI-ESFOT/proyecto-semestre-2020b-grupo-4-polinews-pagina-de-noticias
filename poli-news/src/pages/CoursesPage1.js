@@ -13,8 +13,14 @@ const CoursesPage1 = () => {
 
       <hr className="line-divition" />
 
-      <CourseInfo />
-      <SocialMedia />
+      <div className="square">
+        <CourseInfo />
+      </div>
+
+      <div>
+        <SocialMedia />
+      </div>
+
       <Footer />
     </div>
   );

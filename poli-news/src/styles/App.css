@@ -64,14 +64,18 @@ hr.line-divition {
 }
 
 .ant-form-item-required,
+.ant-card-head-title,
+.ant-card-meta-description,
+.ant-card-meta-title,
 .ant-form-item-extra,
 .ant-modal-title,
 .text-footer {
   color: aliceblue !important;
 }
 
+.ant-picker-calendar-header,
 .contacts {
-  background-color: #134977;
+  background-color: #151f33;
 }
 
 .socialMedia {

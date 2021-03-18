@@ -20,6 +20,7 @@ const CardsCourses = () => {
           {courses.map((course, index) => {
             return (
               <Button
+                type="link"
                 style={{ height: "fit-content" }}
                 onClick={() => {
                   handleClick(course.id);
@@ -50,10 +51,14 @@ const CardsCourses = () => {
                       title={"Profesor: " + course.name + course.lastName}
                       description={
                         "Empieza:  " +
-                        course.date[0].toDate() +
+                        course.date[0].toDate().getDate() +
+                        "/" +
+                        course.date[0].toDate().getMonth() +
                         "                     " +
                         " Hasta:  " +
-                        course.date[1].toDate() +
+                        course.date[1].toDate().getDate() +
+                        "/" +
+                        course.date[1].toDate().getMonth() +
                         "                     " +
                         course.description
                       }
@@ -62,7 +67,7 @@ const CardsCourses = () => {
                     />
                     <br />
                     <br />
-                    <Button> INSCRIBIRSE </Button>
+                    <Button className="my-btn"> INSCRIBIRSE </Button>
                   </Card>
                 </Col>
               </Button>
