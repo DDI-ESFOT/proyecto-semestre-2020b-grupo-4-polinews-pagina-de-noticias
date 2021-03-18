@@ -1,8 +1,8 @@
 import React from "react";
 import Footer from "../components/Footer";
-import MenuProfile from "../components/MenuProfile";
 import withAuth from "../hocs/withAuth";
 import { Col, Row } from "antd";
+import CarouselEvents from "../components/CarouselEvents";
 
 const ProfileCoursesPage = () => {
   return (
@@ -15,15 +15,15 @@ const ProfileCoursesPage = () => {
         </Col>
       </Row>
 
-      <Row span={12}>
-        <Col>
-          <MenuProfile />
-        </Col>
-
+      <Row justify="center">
         <Col className="square-two" span={15}>
           <h1>Mis Cursos</h1>
         </Col>
       </Row>
+
+      <div className="square-two">
+        <CarouselEvents />
+      </div>
 
       <Footer />
     </div>

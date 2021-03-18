@@ -1,9 +1,9 @@
 import React from "react";
-import MenuProfile from "../components/MenuProfile";
 import Footer from "../components/Footer";
 import ProfileInfo from "../components/ProfileInfo";
 import withAuth from "../hocs/withAuth";
 import { Col, Row } from "antd";
+import CarouselEvents from "../components/CarouselEvents";
 
 const ProfilePage = () => {
   return (
@@ -16,15 +16,15 @@ const ProfilePage = () => {
         </Col>
       </Row>
 
-      <Row span={12}>
-        <Col>
-          <MenuProfile />
-        </Col>
-
+      <Row justify="center">
         <Col className="square-two" span={15}>
           <ProfileInfo />
         </Col>
       </Row>
+
+      <div className="square-two">
+        <CarouselEvents />
+      </div>
 
       <Footer />
     </div>
