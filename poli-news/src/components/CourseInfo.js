@@ -32,7 +32,7 @@ const CourseInfo = () => {
     <>
       <Row>
         <Col span={12}>
-          <h1 className="my-title">{course.name}</h1>
+          <h1 className="my-title">{course.courseName}</h1>
           <h2 className="my-text">Descripcion del curso</h2>
           <Button className="my-btn" onClick={onClick}>
             {" "}

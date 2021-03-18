@@ -2,7 +2,6 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth, db, storage, Timestamp } from "../firebase";
 import translateMessage from "../utils/Translate";
 import { message } from "antd";
-import { useParams } from "react-router-dom";
 import male_student from "../images/male_student.png";
 import female_student from "../images/female_student.png";
 import female_teacher from "../images/female_teacher.png";
@@ -29,7 +28,6 @@ function useAuthProvider() {
   const [courses, setCourses] = useState([]);
   const [events, setEvents] = useState([]);
   const [interships, setInterships] = useState([]);
-  const { id } = useParams();
 
   const handleUser = (user) => {
     if (user) {
@@ -408,8 +406,6 @@ function useAuthProvider() {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
           console.log("SESIÓN ACTIVA", user);
-
-          console.log("PORFAVOOOOOR,", id);
 
           const userData = await fetchDataUser(user.uid);
           const avatar = await fetchAvatar(user.uid);
